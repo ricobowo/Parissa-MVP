@@ -1,6 +1,6 @@
 <!--
 @file AGENTS.md
-@version 0.3.0-alpha.2
+@version 0.3.0-alpha.3
 @description Instruksi kerja wajib untuk agent pada repository Parissa POS MVP.
 -->
 
@@ -13,7 +13,7 @@ Dokumen ini berlaku untuk seluruh repository. Instruksi yang lebih spesifik di s
 - Baseline produk: PRD MVP v3.1, disetujui 22 Juli 2026.
 - Versi repository: lihat `VERSION`.
 - Fase aktif: Phase 1 — UX Prototype.
-- Status: Gate A disetujui; prototype alpha revisi kedua tersedia di `prototype/phase-1/` dan menunggu uji Owner untuk Gate B.
+- Status: Gate A disetujui; flow prototype sudah diuji manual Owner dan dinyatakan aman. Visual refinement memakai `prototype/phase-1/design-handoff.md`; Gate B menunggu review visual final dan validasi waktu transaksi.
 - Larangan saat ini: jangan membuat scaffold aplikasi, kode production, dependency, migration, seed, atau konfigurasi deployment sebelum Gate B disetujui secara eksplisit oleh Owner.
 
 ## Source of Truth
@@ -26,7 +26,8 @@ Gunakan urutan berikut ketika dokumen berbeda:
 4. `Document/MVP/03-Business-Rules.md` untuk aturan bisnis dan formula.
 5. `Document/MVP/04-Data-Model.md` untuk model data minimum.
 6. `Document/MVP/05-POS-Flow.md`, `06-Design-Brief.md`, dan `07-Acceptance-Criteria.md` untuk flow, desain, dan release gate.
-7. `Document/Project-Restart-Plan.md` untuk urutan fase.
+7. `prototype/phase-1/design-handoff.md` untuk brief visual eksternal; file ini tidak boleh mengubah source of truth di atasnya.
+8. `Document/Project-Restart-Plan.md` untuk urutan fase.
 
 Jika konflik memengaruhi scope, data, formula, permission, atau perilaku bisnis, berhenti dan minta keputusan Owner. Jangan menyelesaikan konflik dengan asumsi tersembunyi.
 

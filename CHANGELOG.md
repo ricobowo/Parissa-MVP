@@ -1,6 +1,6 @@
 <!--
 @file CHANGELOG.md
-@version 0.3.0-alpha.2
+@version 0.3.0-alpha.3
 @description Riwayat perubahan repository Parissa POS MVP.
 -->
 
@@ -12,7 +12,24 @@ Semua perubahan penting repository dicatat di dokumen ini. Versi repository meng
 
 ### Planned
 
-- Review Owner dan uji klik prototype Phase 1 sebelum Gate B.
+- Penyempurnaan visual eksternal dan review final sebelum Gate B.
+
+## [0.3.0-alpha.3] — 2026-07-22
+
+### Added
+
+- AI Design Handoff yang merangkum artefak sumber, scope, flow terkunci, responsive layout, seluruh state wajib, mini design system, data contoh, format deliverable, dan acceptance checklist.
+- Prompt ringkas yang dapat diberikan bersama handoff kepada AI Design lain.
+
+### Changed
+
+- Status Phase 1 diperbarui: flow utama telah diuji manual Owner dan dinyatakan aman; penyempurnaan visual masih berlangsung.
+- Gate B difokuskan pada review visual final dan validasi transaksi umum kurang dari 30 detik.
+
+### Status
+
+- Tidak ada perubahan flow, business rule, dependency, atau kode aplikasi production.
+- Push tidak dilakukan oleh agent.
 
 ## [0.3.0-alpha.2] — 2026-07-22
 
