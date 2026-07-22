@@ -1,6 +1,6 @@
 <!--
 @file Project-Restart-Plan.md
-@version 1.2.0
+@version 1.3.0
 @description Rencana pembangunan ulang Parissa POS berdasarkan PRD MVP v3.1.
 -->
 
@@ -65,14 +65,15 @@ Prinsip utama:
 
 **Durasi:** 3–4 hari
 
-**Progress 22 Juli 2026:** Prototype HTML alpha tersedia di `prototype/phase-1/`; review klik Owner dan Gate B masih terbuka.
+**Progress 22 Juli 2026:** Prototype HTML `0.3.0-alpha.2` tersedia di `prototype/phase-1/`; tipografi, palet, density, progressive checkout, dan explicit payment selection sudah direvisi. Uji klik Owner dan Gate B masih terbuka.
 
 - [x] Buat prototype POS mobile 360px dengan guided checkout.
 - [ ] Uji flow produk → cart → status bayar → submit.
 - [x] Buat varian desktop Speed First tanpa `max-width` sempit.
 - [x] Implementasikan validasi prototype nama pelanggan opsional/wajib.
 - [ ] Uji skenario lunas, piutang, server error, dan retry.
-- [ ] Kunci design tokens dan component inventory minimum.
+- [x] Kunci design tokens visual minimum: font/fallback, bobot 400/500/600, surface netral, satu brand accent, dan semantic color terbatas.
+- [ ] Kunci component inventory minimum setelah hasil uji prototype disetujui.
 
 **Exit:** Rico menyetujui flow; transaksi simulasi selesai <30 detik.
 

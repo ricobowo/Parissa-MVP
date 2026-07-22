@@ -1,6 +1,6 @@
 <!--
 @file 06-Design-Brief.md
-@version 1.1.0
+@version 1.2.0
 @description Arahan desain dan batas visual MVP Parissa POS.
 -->
 
@@ -59,6 +59,18 @@ Membuat POS yang terasa cepat, tenang, dan dipercaya—bukan dashboard SaaS gene
 - Card hanya ketika grouping membantu; hindari setiap elemen menjadi card.
 - Chart tidak masuk MVP awal.
 - Animasi dibatasi ke feedback submit dan state transition.
+
+## Keputusan Visual Phase 1
+
+- Font UI adalah `Circular Std` jika asset berlisensi tersedia, dengan fallback `Avenir Next` dan `Segoe UI`.
+- Bobot UI dibatasi pada 400, 500, dan 600. Hierarki tidak dibangun dengan membuat semua teks bold.
+- Surface putih/abu netral mendominasi; satu keluarga merah menjadi brand accent: `#E85C6D` untuk indikator nonteks dan `#BD4052` untuk action/pilihan aktif dengan teks putih yang memenuhi AA.
+- Warna hijau, amber, dan merah hanya dipakai untuk makna status, bukan dekorasi atau kategori.
+- Placeholder foto produk berukuran kecil dan netral; rasa/kategori tidak mendapat warna tersendiri.
+- Empty cart hanya menampilkan petunjuk ringkas. Status pembayaran, pelanggan, total, dan submit muncul setelah ada item.
+- Status pembayaran tidak memiliki default. Kasir wajib memilih `Sudah` atau `Belum` secara eksplisit.
+
+Referensi eksternal dipakai sebagai arahan prinsip tipografi, ruang, palet netral, dan progressive disclosure. Komposisi serta identitas visual tidak disalin.
 
 ## Asset Checklist
 

@@ -1,6 +1,6 @@
 <!--
 @file README.md
-@version 0.3.0-alpha.1
+@version 0.3.0-alpha.2
 @description Baseline repository Parissa POS berdasarkan PRD MVP v3.1.
 -->
 
@@ -8,7 +8,7 @@
 
 Parissa POS adalah aplikasi web responsif untuk membantu bisnis dessert dan minuman Parissa di Bandung mencatat penjualan dalam kurang dari 30 detik dan menghasilkan angka omzet, HPP, gross profit, serta piutang yang dapat dipercaya.
 
-> **Status:** Gate A disetujui. Prototype UX `0.3.0-alpha.1` tersedia untuk review Phase 1; coding foundation belum boleh dimulai sampai Gate B disetujui.
+> **Status:** Gate A disetujui. Prototype UX `0.3.0-alpha.2` sudah direvisi berdasarkan review UI/UX dan tersedia untuk uji Phase 1; coding foundation belum boleh dimulai sampai Gate B disetujui.
 
 ## Sasaran MVP
 
@@ -78,6 +78,8 @@ Stack ini baru boleh di-scaffold setelah prototype UX dan Gate B disetujui.
 
 Prototype adalah satu file HTML dengan CSS dan JavaScript lokal. Tidak ada dependency, backend, authentication, atau database; artefak ini hanya untuk memvalidasi flow sebelum Phase 2.
 
+Keputusan visual sementara: tipografi ringan–menengah (400/500/600), surface netral, satu keluarga aksen merah Parissa dengan shade action yang memenuhi kontras, thumbnail foto netral, progressive checkout, dan status pembayaran tanpa default. Rincian tersedia di [brand spec](prototype/phase-1/brand-spec.md).
+
 ## Roadmap dan Gate
 
 | Fase | Outcome | Gate |
@@ -128,11 +130,11 @@ Prototype adalah satu file HTML dengan CSS dan JavaScript lokal. Tidak ada depen
 
 ## Langkah Berikutnya
 
-Buka dan review prototype pada mobile 360px dan desktop 1280px. Validasi skenario lunas, piutang, server error, dan retry; coding foundation tetap menunggu Gate B.
+Buka dan uji prototype revisi pada mobile 360px dan desktop 1280px. Validasi transaksi lunas, piutang, server error, retry, serta pastikan transaksi umum selesai kurang dari 30 detik; coding foundation tetap menunggu Gate B.
 
 ## Versi
 
-- Repository/software: `0.3.0-alpha.1`.
+- Repository/software: `0.3.0-alpha.2`.
 - Baseline PRD: MVP `v3.1`.
 
 Lihat `CHANGELOG.md` untuk perubahan repository.

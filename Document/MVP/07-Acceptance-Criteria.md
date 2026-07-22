@@ -1,6 +1,6 @@
 <!--
 @file 07-Acceptance-Criteria.md
-@version 1.1.0
+@version 1.2.0
 @description Acceptance criteria dan release gate MVP Parissa POS.
 -->
 
@@ -27,6 +27,8 @@
 ## POS
 
 - [ ] Cart tidak dapat disubmit dalam keadaan kosong.
+- [ ] Checkout detail tidak ditampilkan saat cart kosong.
+- [ ] Status pembayaran tidak memiliki default dan wajib dipilih eksplisit.
 - [ ] Quantity hanya menerima integer positif.
 - [ ] Nama pelanggan wajib saat status `Belum`.
 - [ ] Total client dan server sesuai fixture.
@@ -72,6 +74,8 @@
 - [ ] Keyboard flow dan focus state berfungsi.
 - [ ] Contrast memenuhi WCAG AA.
 - [ ] Tidak ada text/legend/control terpotong.
+- [ ] UI memakai satu keluarga warna brand; warna lain hanya memiliki makna semantik.
+- [ ] Bobot font 400/500/600 membentuk hierarki tanpa membuat seluruh UI bold.
 
 ## Engineering Quality Gate
 

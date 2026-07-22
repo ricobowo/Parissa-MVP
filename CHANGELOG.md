@@ -1,6 +1,6 @@
 <!--
 @file CHANGELOG.md
-@version 0.3.0-alpha.1
+@version 0.3.0-alpha.2
 @description Riwayat perubahan repository Parissa POS MVP.
 -->
 
@@ -13,6 +13,30 @@ Semua perubahan penting repository dicatat di dokumen ini. Versi repository meng
 ### Planned
 
 - Review Owner dan uji klik prototype Phase 1 sebelum Gate B.
+
+## [0.3.0-alpha.2] — 2026-07-22
+
+### Changed
+
+- Menyederhanakan UI ke surface netral dengan satu keluarga warna brand dan semantic color terbatas; action memakai shade merah yang memenuhi kontras AA.
+- Membatasi bobot tipografi ke 400/500/600 serta mendokumentasikan fallback saat `Circular Std` belum tersedia.
+- Mengubah kartu produk menjadi lebih ringkas dan menghapus warna rasa, category label ganda, serta placeholder dominan.
+- Mengganti indikator navigasi berbentuk kotak dengan ikon garis dan label yang jelas.
+- Menyamakan search serta kategori, termasuk `Bundling`, pada seluruh layout comparison.
+- Menerapkan progressive disclosure: checkout tersembunyi ketika cart kosong.
+- Menghapus default status `Sudah`; Kasir wajib memilih status pembayaran secara eksplisit.
+- Menampilkan nama pelanggan sebagai opsional untuk transaksi lunas dan wajib untuk piutang.
+
+### Validation
+
+- Struktur HTML, link asset, whitespace, dan sintaks JavaScript lulus pemeriksaan statis.
+- Kontras teks utama, teks sekunder, CTA, serta status paid/unpaid/error lulus ambang 4,5:1 pada token yang dipakai.
+- Responsive render dan uji klik Owner masih diperlukan sebelum Gate B.
+
+### Status
+
+- Phase 1 tetap aktif dan Gate B belum disetujui.
+- Tidak ada dependency, backend, migration, atau kode aplikasi production.
 
 ## [0.3.0-alpha.1] — 2026-07-22
 

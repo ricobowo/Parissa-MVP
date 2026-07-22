@@ -1,6 +1,6 @@
 <!--
 @file AGENTS.md
-@version 0.3.0-alpha.1
+@version 0.3.0-alpha.2
 @description Instruksi kerja wajib untuk agent pada repository Parissa POS MVP.
 -->
 
@@ -13,7 +13,7 @@ Dokumen ini berlaku untuk seluruh repository. Instruksi yang lebih spesifik di s
 - Baseline produk: PRD MVP v3.1, disetujui 22 Juli 2026.
 - Versi repository: lihat `VERSION`.
 - Fase aktif: Phase 1 — UX Prototype.
-- Status: Gate A disetujui; prototype alpha tersedia di `prototype/phase-1/` dan menunggu review Owner untuk Gate B.
+- Status: Gate A disetujui; prototype alpha revisi kedua tersedia di `prototype/phase-1/` dan menunggu uji Owner untuk Gate B.
 - Larangan saat ini: jangan membuat scaffold aplikasi, kode production, dependency, migration, seed, atau konfigurasi deployment sebelum Gate B disetujui secara eksplisit oleh Owner.
 
 ## Source of Truth
@@ -97,6 +97,15 @@ Fitur baru hanya boleh masuk P0 jika transaksi utama tidak dapat selesai tanpany
 - Setiap file baru memiliki header versi jika format file mendukung komentar.
 - Schema hanya berubah melalui migration baru; migration yang telah diterapkan tidak diedit ulang.
 - Jangan menyalin UI, dependency, trigger, atau migration lama secara wholesale. Repository lama hanya referensi read-only.
+
+## Keputusan UX Phase 1
+
+- Desktop memakai layout Speed First; mobile memakai katalog yang sama dengan cart bottom sheet dan progressive checkout.
+- Font UI memakai `Circular Std` bila asset berlisensi tersedia, dengan fallback `Avenir Next`/`Segoe UI`; bobot dibatasi pada 400/500/600.
+- Surface netral mendominasi; `#E85C6D` menjadi aksen nonteks dan shade satu keluarga `#BD4052` menjadi action/pilihan aktif yang memenuhi kontras; warna lain hanya untuk status semantik.
+- Foto yang belum tersedia memakai thumbnail netral kecil, tanpa warna rasa/kategori atau stock image.
+- Checkout disembunyikan saat cart kosong.
+- Status pembayaran tidak memiliki default dan wajib dipilih eksplisit sebelum submit.
 
 ## Quality Gate
 

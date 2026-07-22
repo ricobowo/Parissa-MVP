@@ -1,6 +1,6 @@
 <!--
 @file brand-spec.md
-@version 0.1.0
+@version 0.2.0
 @description Spesifikasi brand untuk prototype UX Parissa POS Phase 1.
 -->
 
@@ -35,21 +35,40 @@ Nilai berikut diambil dari bidang warna brand guideline yang dirender; gunakan s
 
 | Token | HEX | Penggunaan |
 |---|---|---|
-| Exclusive Blue | `#5A72C1` | Aksen sekunder terbatas |
-| Exclusive Red | `#E85C6D` | Primary action dan pilihan aktif |
-| Exclusive Dark | `#5A5758` | Elemen brand gelap |
-| Friendly Yellow | `#F7EDB7` | Highlight dan permukaan hangat |
-| Friendly Lilac | `#EBB9E0` | Penanda rasa/kategori terbatas |
-| Friendly Coral | `#F57C5B` | Aksen rasa/kategori terbatas |
+| Exclusive Red | `#E85C6D` | Aksen brand nonteks dan asset pemasaran |
+| Operational Red | `#BD4052` | Primary action/pilihan aktif dengan teks putih |
+| Exclusive Dark | `#5A5758` | Elemen brand gelap terbatas |
+| Exclusive Blue | `#5A72C1` | Focus ring jika lolos kontras |
+| Friendly Yellow | `#F7EDB7` | Asset pemasaran; bukan permukaan operasional default |
+| Friendly Lilac | `#EBB9E0` | Asset pemasaran; tidak dipakai sebagai kategori POS |
+| Friendly Coral | `#F57C5B` | Asset pemasaran; bukan CTA kedua |
 
-Untuk UI POS, hanya `#E85C6D` yang menjadi brand action utama. Warna lain dipakai sebagai highlight atau penanda kategori, bukan sebagai CTA yang bersaing.
+### Keputusan warna UI
+
+UI POS menggunakan palet operasional minimal:
+
+- Canvas `#F3F2F1`, surface lembut `#FAF9F8`, dan surface utama `#FFFFFF`.
+- Teks utama `#252324`, teks sekunder `#757173`, border `#E8E5E3`.
+- Satu keluarga merah: `#E85C6D` untuk indikator nonteks dan `#BD4052` untuk primary action/pilihan aktif dengan teks putih.
+- Hijau, amber, dan merah hanya untuk status sukses, peringatan/piutang, dan error.
+- Kategori serta placeholder foto tidak dibedakan dengan warna. Label dan struktur navigasi sudah cukup.
+
+Target proporsi visual adalah dominan netral, satu keluarga aksen brand, lalu semantic color hanya ketika status memang perlu dibaca. Shade operasional `#BD4052` memberi kontras 5,23:1 terhadap putih; warna guideline `#E85C6D` hanya 3,40:1 sehingga tidak dipakai di belakang teks kecil. Palet lengkap brand tetap dipertahankan untuk kebutuhan pemasaran, bukan ditampilkan bersamaan di layar POS.
 
 ## Typography
 
-- UI/body: `Circular Std`; fallback prototype `Avenir Next`, `Helvetica Neue`, sans-serif.
+- UI/body: `Circular Std` jika file font berlisensi disediakan; fallback prototype `Avenir Next`, `Segoe UI`, sans-serif.
 - Brand script: `Astina`, hanya untuk wordmark/logo dan aksen sangat terbatas.
 - Nilai finansial menggunakan angka tabular dari font UI.
 - Script tidak digunakan untuk tombol, tabel, field, atau informasi operasional.
+
+### Keputusan bobot dan hierarki
+
+- `400` untuk body, helper, dan metadata.
+- `500` untuk label, nama produk, input, dan tombol sekunder.
+- `600` untuk heading, total, CTA utama, dan state aktif.
+- Hindari `700–900`; hierarki dibentuk dengan ukuran, spacing, dan posisi.
+- Body minimum 14px pada aplikasi production. Ukuran lebih kecil di file perbandingan hanya untuk mensimulasikan layar dalam frame.
 
 ## Character
 
@@ -60,15 +79,23 @@ Untuk UI POS, hanya `#E85C6D` yang menjadi brand action utama. Warna lain dipaka
 
 ## Reference Boundary
 
-Referensi Behance “Restaurant Table Booking POS” dipakai untuk pola structural berikut:
+Referensi Behance “Restaurant Table Booking POS” dan “ERP UI — POS & Restaurant Operations System” dipakai untuk prinsip berikut:
 
 - navigasi desktop yang ringkas;
 - search dan kategori di atas product grid;
 - product grid sebagai area utama;
 - cart/checkout yang tetap terlihat pada desktop.
+- palet permukaan netral dan aksen tunggal;
+- hierarchy melalui ruang, ukuran, dan progressive disclosure;
+- tipografi sans-serif dengan bobot ringan–menengah.
 
 Warna, font, brand, table booking, restaurant seating, dan fitur di luar P0 tidak disalin.
 
+Tautan sumber untuk review agent berikutnya:
+
+- [POS for Restaurant — Table Booking & POS System UI/UX](https://www.behance.net/gallery/116691607/POS-for-Restaurant-Table-Booking-POS-System-UIUX)
+- [ERP UI — POS & Restaurant Operations System](https://www.behance.net/gallery/231001803/ERP-UI-POS-Restaurant-Operations-System)
+
 ## Signature Detail
 
-Gunakan friendly yellow sebagai bidang highlight tipis dan coral-red sebagai satu primary action. Logo resmi ditempatkan pada header putih agar karakter tulisan tangan tetap terbaca tanpa mengurangi kejelasan kontrol operasional.
+Logo resmi pada permukaan putih dan satu keluarga merah untuk action sudah cukup membawa identitas Parissa. Warna ramah lainnya tidak dipaksakan masuk ke layar operasional.
