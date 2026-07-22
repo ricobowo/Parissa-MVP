@@ -1,6 +1,6 @@
 <!--
 @file CHANGELOG.md
-@version 0.2.0
+@version 0.3.0-alpha.1
 @description Riwayat perubahan repository Parissa POS MVP.
 -->
 
@@ -12,7 +12,29 @@ Semua perubahan penting repository dicatat di dokumen ini. Versi repository meng
 
 ### Planned
 
-- Perencanaan detail dan prototype UX Phase 1 sebelum Gate B.
+- Review Owner dan uji klik prototype Phase 1 sebelum Gate B.
+
+## [0.3.0-alpha.1] — 2026-07-22
+
+### Added
+
+- Brand spec hasil review visual PDF brand guideline Parissa.
+- Logo resmi prototype yang diekstrak langsung dari PDF sumber.
+- Product facts dan panduan review untuk mencegah asumsi ulang oleh agent berikutnya.
+- Perbandingan tiga arah layout: Speed First, Guided Checkout, dan Compact Operations.
+- Prototype HTML interaktif dengan pola Speed First pada desktop dan Guided Checkout pada mobile.
+- Simulasi cart, quantity, status pembayaran, validasi pelanggan piutang, double-submit guard, confirmation state, server error, dan retry.
+
+### Validation
+
+- Struktur file, link asset, dan sintaks JavaScript diperiksa secara statis.
+- Pemeriksaan visual otomatis file lokal diblokir oleh kebijakan browser; review klik Owner masih diperlukan sebelum Gate B.
+
+### Status
+
+- Phase 1 aktif dan prototype berstatus alpha.
+- Tidak ada dependency, backend, migration, atau kode aplikasi production.
+- Engineering foundation tetap diblokir sampai Gate B disetujui.
 
 ## [0.2.0] — 2026-07-22
 

@@ -1,6 +1,6 @@
 <!--
 @file AGENTS.md
-@version 0.2.0
+@version 0.3.0-alpha.1
 @description Instruksi kerja wajib untuk agent pada repository Parissa POS MVP.
 -->
 
@@ -13,7 +13,7 @@ Dokumen ini berlaku untuk seluruh repository. Instruksi yang lebih spesifik di s
 - Baseline produk: PRD MVP v3.1, disetujui 22 Juli 2026.
 - Versi repository: lihat `VERSION`.
 - Fase aktif: Phase 1 — UX Prototype.
-- Status: Gate A disetujui; scope P0 dibekukan.
+- Status: Gate A disetujui; prototype alpha tersedia di `prototype/phase-1/` dan menunggu review Owner untuk Gate B.
 - Larangan saat ini: jangan membuat scaffold aplikasi, kode production, dependency, migration, seed, atau konfigurasi deployment sebelum Gate B disetujui secara eksplisit oleh Owner.
 
 ## Source of Truth

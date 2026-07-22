@@ -1,0 +1,196 @@
+<!--
+@file layout-variations.html
+@version 0.1.0
+@description Perbandingan tiga arah layout POS Parissa untuk review Phase 1.
+
+ASUMSI DAN REASONING
+- Pengguna utama layar ini adalah Kasir dengan tugas berulang dan target <30 detik.
+- A mengejar kecepatan desktop, B memberi alur lebih terpandu, C menguji kepadatan tinggi.
+- Foto produk belum tersedia, sehingga seluruh product image memakai placeholder jujur.
+- A dipilih sebagai dasar desktop; pola B dipakai untuk checkout mobile.
+-->
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Parissa POS — Layout Variations</title>
+  <style>
+    :root {
+      --brand-primary: #e85c6d;
+      --brand-primary-dark: #bd4052;
+      --brand-yellow: #f7edb7;
+      --brand-lilac: #ebb9e0;
+      --brand-coral: #f57c5b;
+      --brand-blue: #5a72c1;
+      --ink: #272425;
+      --muted: #777174;
+      --line: #e8e1dc;
+      --surface: #ffffff;
+      --canvas: #f6f3f0;
+      --shadow: 0 18px 50px rgba(39, 36, 37, 0.10);
+      font-family: "Circular Std", "Avenir Next", "Helvetica Neue", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; color: var(--ink); background: var(--canvas); }
+    button { font: inherit; }
+
+    .review-header {
+      padding: 36px 40px 20px;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .eyebrow { margin: 0 0 8px; color: var(--brand-primary-dark); font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    h1 { margin: 0; font-size: clamp(28px, 4vw, 48px); letter-spacing: -.04em; }
+    .intro { max-width: 560px; margin: 0; color: var(--muted); line-height: 1.55; }
+
+    .variations {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(360px, 1fr));
+      gap: 24px;
+      padding: 24px 40px 56px;
+      overflow-x: auto;
+    }
+    .variation { min-width: 360px; }
+    .variation-label { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px; gap: 16px; }
+    .variation-label h2 { margin: 0; font-size: 18px; }
+    .variation-label span { color: var(--muted); font-size: 12px; }
+    .frame { height: 680px; overflow: hidden; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow); }
+
+    .app-top { height: 66px; display: flex; align-items: center; gap: 14px; padding: 10px 16px; border-bottom: 1px solid var(--line); }
+    .logo { width: 92px; height: 48px; object-fit: contain; }
+    .search { flex: 1; height: 40px; display: flex; align-items: center; color: var(--muted); background: #f7f5f3; border-radius: 10px; padding: 0 12px; font-size: 12px; }
+    .avatar { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--brand-yellow); font-size: 12px; font-weight: 800; }
+
+    .a-body { height: 614px; display: grid; grid-template-columns: 60px 1fr 152px; }
+    .rail { padding: 10px 8px; border-right: 1px solid var(--line); display: grid; align-content: start; gap: 8px; }
+    .rail-item { min-height: 48px; display: grid; place-items: center; border-radius: 10px; color: var(--muted); font-size: 9px; text-align: center; }
+    .rail-item.active { color: var(--brand-primary-dark); background: #fff0f2; font-weight: 800; }
+    .catalog { padding: 16px; overflow: hidden; }
+    .tabs { display: flex; gap: 6px; margin-bottom: 12px; }
+    .tab { padding: 7px 9px; border-radius: 999px; background: #f5f1ee; color: var(--muted); font-size: 10px; }
+    .tab.active { background: var(--brand-primary); color: white; }
+    .product-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .product { min-width: 0; padding: 8px; border: 1px solid var(--line); border-radius: 12px; }
+    .photo { height: 70px; border-radius: 8px; display: grid; place-items: center; background: #eeeae7; color: #8e8783; font-size: 9px; text-align: center; }
+    .product h3 { height: 30px; margin: 8px 0 4px; overflow: hidden; font-size: 11px; line-height: 1.25; }
+    .price { color: var(--brand-primary-dark); font-size: 11px; font-weight: 800; }
+    .cart { padding: 14px 12px; background: #fffcf7; border-left: 1px solid var(--line); }
+    .cart h3 { margin: 0 0 14px; font-size: 14px; }
+    .line-item { padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 10px; }
+    .line-item strong { display: block; margin-bottom: 5px; }
+    .total { margin-top: 18px; display: flex; justify-content: space-between; font-size: 13px; font-weight: 800; }
+    .primary { width: 100%; min-height: 44px; margin-top: 12px; border: 0; border-radius: 10px; color: white; background: var(--brand-primary); font-weight: 800; }
+
+    .b-body { height: 614px; padding: 18px; background: #fffdf9; }
+    .stepper { display: grid; grid-template-columns: repeat(3, 1fr); margin-bottom: 22px; }
+    .step { position: relative; color: var(--muted); font-size: 10px; text-align: center; }
+    .step::before { content: ""; display: block; width: 24px; height: 24px; margin: 0 auto 6px; border-radius: 50%; background: #eee9e5; }
+    .step.active { color: var(--brand-primary-dark); font-weight: 800; }
+    .step.active::before { background: var(--brand-primary); box-shadow: inset 0 0 0 7px white; border: 2px solid var(--brand-primary); }
+    .guided-card { padding: 16px; border: 1px solid var(--line); border-radius: 16px; background: white; }
+    .guided-card h3 { margin: 0 0 4px; font-size: 16px; }
+    .guided-card p { margin: 0 0 14px; color: var(--muted); font-size: 11px; }
+    .choice { min-height: 54px; margin-bottom: 8px; padding: 10px; display: flex; align-items: center; justify-content: space-between; border: 1px solid var(--line); border-radius: 12px; font-size: 12px; }
+    .choice.selected { border-color: var(--brand-primary); background: #fff3f4; }
+    .summary-strip { margin-top: 14px; padding: 14px; display: flex; justify-content: space-between; border-radius: 12px; background: var(--brand-yellow); font-size: 12px; font-weight: 800; }
+
+    .c-body { height: 614px; display: grid; grid-template-columns: 1fr 166px; }
+    .compact-list { padding: 12px; }
+    .compact-tools { display: flex; gap: 6px; margin-bottom: 10px; }
+    .compact-tools span { padding: 6px 8px; border-radius: 6px; background: #f0ece9; font-size: 9px; }
+    .compact-row { min-height: 61px; padding: 7px; display: grid; grid-template-columns: 44px 1fr auto; align-items: center; gap: 8px; border-bottom: 1px solid var(--line); }
+    .compact-photo { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 7px; background: #ece8e5; color: var(--muted); font-size: 8px; text-align: center; }
+    .compact-row strong { display: block; font-size: 10px; }
+    .compact-row small { color: var(--muted); font-size: 9px; }
+    .add { width: 28px; height: 28px; display: grid; place-items: center; border-radius: 7px; background: var(--brand-primary); color: white; font-weight: 900; }
+    .dense-cart { padding: 12px; border-left: 1px solid var(--line); background: #fff; }
+    .dense-cart h3 { margin: 0 0 10px; font-size: 13px; }
+    .dense-table { width: 100%; border-collapse: collapse; font-size: 9px; }
+    .dense-table td { padding: 7px 2px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .warning { margin-top: 12px; padding: 8px; border-radius: 8px; color: #7c5c18; background: #fff7da; font-size: 9px; line-height: 1.35; }
+
+    .chosen { margin: 0 40px 40px; padding: 18px 20px; border-radius: 14px; background: var(--brand-yellow); }
+    .chosen strong { color: var(--brand-primary-dark); }
+
+    @media (max-width: 760px) {
+      .review-header { padding: 24px 20px 12px; display: block; }
+      .intro { margin-top: 12px; }
+      .variations { padding: 16px 20px 32px; }
+      .chosen { margin: 0 20px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="review-header">
+    <div>
+      <p class="eyebrow">Phase 1 · Design review</p>
+      <h1>Tiga arah layout POS</h1>
+    </div>
+    <p class="intro">Perbandingan ini menguji kecepatan, panduan langkah, dan kepadatan. Semua memakai produk serta brand Parissa; foto masih berupa placeholder resmi.</p>
+  </header>
+
+  <main class="variations" aria-label="Perbandingan variasi layout">
+    <section class="variation">
+      <div class="variation-label"><h2>A — Speed First</h2><span>Direkomendasikan · desktop</span></div>
+      <div class="frame">
+        <div class="app-top"><img class="logo" src="assets/parissa-logo.png" alt="Parissa"><div class="search">Cari produk…</div><div class="avatar">RK</div></div>
+        <div class="a-body">
+          <nav class="rail"><div class="rail-item active">POS</div><div class="rail-item">Riwayat</div><div class="rail-item">Piutang</div><div class="rail-item">Dashboard</div></nav>
+          <div class="catalog">
+            <div class="tabs"><span class="tab active">Semua</span><span class="tab">Dessert</span><span class="tab">Minuman</span></div>
+            <div class="product-grid">
+              <article class="product"><div class="photo">Foto produk<br>belum tersedia</div><h3>Vanilla Pannacotta</h3><div class="price">Rp20.000</div></article>
+              <article class="product"><div class="photo">Foto produk<br>belum tersedia</div><h3>Earl Grey Pannacotta</h3><div class="price">Rp20.000</div></article>
+              <article class="product"><div class="photo">Foto produk<br>belum tersedia</div><h3>Bundling 3pcs</h3><div class="price">Rp50.000</div></article>
+              <article class="product"><div class="photo">Foto produk<br>belum tersedia</div><h3>Fresh Creamy Matcha</h3><div class="price">Rp28.000</div></article>
+            </div>
+          </div>
+          <aside class="cart"><h3>Pesanan</h3><div class="line-item"><strong>Vanilla Pannacotta</strong>1 × Rp20.000</div><div class="line-item"><strong>Fresh Creamy Matcha</strong>1 × Rp28.000</div><div class="total"><span>Total</span><span>Rp48.000</span></div><button class="primary">Bayar</button></aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="variation">
+      <div class="variation-label"><h2>B — Guided Checkout</h2><span>Direkomendasikan · mobile</span></div>
+      <div class="frame">
+        <div class="app-top"><img class="logo" src="assets/parissa-logo.png" alt="Parissa"><div class="search">Transaksi baru</div><div class="avatar">RK</div></div>
+        <div class="b-body">
+          <div class="stepper"><div class="step">Produk</div><div class="step active">Pembayaran</div><div class="step">Konfirmasi</div></div>
+          <section class="guided-card">
+            <h3>Status pembayaran</h3>
+            <p>Pilih satu untuk melanjutkan transaksi.</p>
+            <div class="choice selected"><span><strong>Sudah dibayar</strong><br><small>Omzet diakui hari ini</small></span><span>✓</span></div>
+            <div class="choice"><span><strong>Belum dibayar</strong><br><small>Nama pelanggan wajib</small></span><span>○</span></div>
+            <div class="summary-strip"><span>2 item</span><span>Rp48.000</span></div>
+            <button class="primary">Lanjut ke konfirmasi</button>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="variation">
+      <div class="variation-label"><h2>C — Compact Operations</h2><span>Eksplorasi · high density</span></div>
+      <div class="frame">
+        <div class="app-top"><img class="logo" src="assets/parissa-logo.png" alt="Parissa"><div class="search">Cari nama atau kategori…</div><div class="avatar">RK</div></div>
+        <div class="c-body">
+          <div class="compact-list">
+            <div class="compact-tools"><span>Semua</span><span>Dessert</span><span>Minuman</span><span>Bundling</span></div>
+            <div class="compact-row"><div class="compact-photo">Foto</div><div><strong>Vanilla Pannacotta</strong><small>Rp20.000 · Dessert</small></div><div class="add">+</div></div>
+            <div class="compact-row"><div class="compact-photo">Foto</div><div><strong>Earl Grey Pannacotta</strong><small>Rp20.000 · Dessert</small></div><div class="add">+</div></div>
+            <div class="compact-row"><div class="compact-photo">Foto</div><div><strong>Bundling 3pcs</strong><small>Rp50.000 · Bundling</small></div><div class="add">+</div></div>
+            <div class="compact-row"><div class="compact-photo">Foto</div><div><strong>Fresh Creamy Earl Grey</strong><small>Rp28.000 · Minuman</small></div><div class="add">+</div></div>
+            <div class="compact-row"><div class="compact-photo">Foto</div><div><strong>Fresh Creamy Matcha</strong><small>Rp28.000 · Minuman</small></div><div class="add">+</div></div>
+          </div>
+          <aside class="dense-cart"><h3>Cart · 3</h3><table class="dense-table"><tr><td>Vanilla<br><small>1 × 20k</small></td><td>20k</td></tr><tr><td>Matcha<br><small>2 × 28k</small></td><td>56k</td></tr></table><div class="total"><span>Total</span><span>76k</span></div><button class="primary">Simpan</button><div class="warning">Cepat untuk pengguna mahir, tetapi kepadatan berisiko pada layar 360px.</div></aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <p class="chosen"><strong>Keputusan:</strong> gunakan struktur A pada desktop dan pola checkout B pada mobile. C disimpan sebagai eksplorasi, bukan arah implementasi.</p>
+</body>
+</html>

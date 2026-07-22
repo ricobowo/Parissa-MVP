@@ -1,6 +1,6 @@
 <!--
 @file README.md
-@version 0.2.0
+@version 0.3.0-alpha.1
 @description Baseline repository Parissa POS berdasarkan PRD MVP v3.1.
 -->
 
@@ -8,7 +8,7 @@
 
 Parissa POS adalah aplikasi web responsif untuk membantu bisnis dessert dan minuman Parissa di Bandung mencatat penjualan dalam kurang dari 30 detik dan menghasilkan angka omzet, HPP, gross profit, serta piutang yang dapat dipercaya.
 
-> **Status:** Gate A disetujui pada 22 Juli 2026. Phase 1 — UX Prototype aktif; coding foundation belum boleh dimulai sampai Gate B disetujui.
+> **Status:** Gate A disetujui. Prototype UX `0.3.0-alpha.1` tersedia untuk review Phase 1; coding foundation belum boleh dimulai sampai Gate B disetujui.
 
 ## Sasaran MVP
 
@@ -69,6 +69,15 @@ Data historis belum dimasukkan karena ditemukan selisih jumlah transaksi dan ang
 
 Stack ini baru boleh di-scaffold setelah prototype UX dan Gate B disetujui.
 
+## Prototype Phase 1
+
+- [Perbandingan tiga layout](prototype/phase-1/layout-variations.html).
+- [Prototype POS interaktif](prototype/phase-1/pos-prototype.html).
+- [Brand spec](prototype/phase-1/brand-spec.md).
+- [Panduan review](prototype/phase-1/README.md).
+
+Prototype adalah satu file HTML dengan CSS dan JavaScript lokal. Tidak ada dependency, backend, authentication, atau database; artefak ini hanya untuk memvalidasi flow sebelum Phase 2.
+
 ## Roadmap dan Gate
 
 | Fase | Outcome | Gate |
@@ -106,16 +115,24 @@ Stack ini baru boleh di-scaffold setelah prototype UX dan Gate B disetujui.
 │   ├── PRD-Parissa-MVP.md
 │   └── Project-Restart-Plan.md
 ├── README.md
+├── prototype/
+│   └── phase-1/
+│       ├── assets/
+│       ├── brand-spec.md
+│       ├── layout-variations.html
+│       ├── pos-prototype.html
+│       ├── product-facts.md
+│       └── README.md
 └── VERSION
 ```
 
 ## Langkah Berikutnya
 
-Buat rencana detail dan prototype UX Phase 1 untuk POS mobile 360px dan desktop 1280px. Validasi skenario lunas, piutang, server error, dan retry; coding foundation tetap menunggu Gate B.
+Buka dan review prototype pada mobile 360px dan desktop 1280px. Validasi skenario lunas, piutang, server error, dan retry; coding foundation tetap menunggu Gate B.
 
 ## Versi
 
-- Repository/software: `0.2.0`.
+- Repository/software: `0.3.0-alpha.1`.
 - Baseline PRD: MVP `v3.1`.
 
 Lihat `CHANGELOG.md` untuk perubahan repository.
