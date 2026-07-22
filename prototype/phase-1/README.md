@@ -1,6 +1,6 @@
 <!--
 @file README.md
-@version 0.3.0
+@version 0.4.0
 @description Cara meninjau prototype UX Parissa POS Phase 1.
 -->
 
@@ -14,6 +14,7 @@ Artefak ini memvalidasi flow POS sebelum engineering foundation dimulai.
 - `pos-prototype.html`: prototype interaktif alpha, memakai A pada desktop dan progressive checkout B pada mobile.
 - `brand-spec.md`: sumber logo, warna, font, dan batas penggunaan brand.
 - `design-handoff.md`: brief siap pakai untuk AI Design atau UI designer lain tanpa mengubah flow tervalidasi.
+- `design-import-notes.md`: provenance dan keputusan adaptasi mockup eksternal 23 Juli 2026.
 - `product-facts.md`: fakta produk dan skenario yang tidak boleh diasumsikan ulang.
 - `assets/parissa-logo.png`: ekstraksi raster logo resmi dari PDF brand guideline.
 
@@ -30,6 +31,8 @@ Buka file HTML langsung dari Finder atau browser. Prototype tidak membutuhkan se
 5. Pastikan status pembayaran tidak terpilih otomatis dan checkout tersembunyi saat cart kosong.
 
 Flow utama sudah diuji manual oleh Owner dan dinyatakan aman pada 22 Juli 2026. Gate B tetap terbuka sampai visual final hasil handoff direview dan target waktu transaksi tervalidasi.
+
+Mockup eksternal terbaru telah diadaptasi ke `pos-prototype.html` pada 23 Juli 2026. Prototype utama tetap mandiri dan tidak membutuhkan runtime tool desain.
 
 ## External Design Handoff
 

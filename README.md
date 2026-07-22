@@ -1,6 +1,6 @@
 <!--
 @file README.md
-@version 0.3.0-alpha.3
+@version 0.3.0-alpha.4
 @description Baseline repository Parissa POS berdasarkan PRD MVP v3.1.
 -->
 
@@ -8,7 +8,7 @@
 
 Parissa POS adalah aplikasi web responsif untuk membantu bisnis dessert dan minuman Parissa di Bandung mencatat penjualan dalam kurang dari 30 detik dan menghasilkan angka omzet, HPP, gross profit, serta piutang yang dapat dipercaya.
 
-> **Status:** Gate A disetujui. Flow prototype UX `0.3.0-alpha.3` sudah diuji manual Owner dan dinyatakan aman; penyempurnaan visual melalui design handoff masih berlangsung. Coding foundation belum boleh dimulai sampai Gate B disetujui.
+> **Status:** Gate A disetujui. Flow prototype UX `0.3.0-alpha.4` sudah diuji manual Owner dan dinyatakan aman; mockup eksternal terbaru telah diadaptasi dan menunggu review visual final. Coding foundation belum boleh dimulai sampai Gate B disetujui.
 
 ## Sasaran MVP
 
@@ -75,6 +75,7 @@ Stack ini baru boleh di-scaffold setelah prototype UX dan Gate B disetujui.
 - [Prototype POS interaktif](prototype/phase-1/pos-prototype.html).
 - [Brand spec](prototype/phase-1/brand-spec.md).
 - [AI Design Handoff](prototype/phase-1/design-handoff.md).
+- [Catatan adaptasi mockup eksternal](prototype/phase-1/design-import-notes.md).
 - [Panduan review](prototype/phase-1/README.md).
 
 Prototype adalah satu file HTML dengan CSS dan JavaScript lokal. Tidak ada dependency, backend, authentication, atau database; artefak ini hanya untuk memvalidasi flow sebelum Phase 2.
@@ -123,6 +124,7 @@ Keputusan visual sementara: tipografi ringan–menengah (400/500/600), surface n
 │       ├── assets/
 │       ├── brand-spec.md
 │       ├── design-handoff.md
+│       ├── design-import-notes.md
 │       ├── layout-variations.html
 │       ├── pos-prototype.html
 │       ├── product-facts.md
@@ -132,11 +134,11 @@ Keputusan visual sementara: tipografi ringan–menengah (400/500/600), surface n
 
 ## Langkah Berikutnya
 
-Berikan `prototype/phase-1/design-handoff.md` beserta seluruh artefak sumbernya kepada AI Design atau UI designer. Review hasil visual terhadap checklist handoff sebelum menyetujui Gate B.
+Review `prototype/phase-1/pos-prototype.html` yang sudah mengadopsi mockup eksternal terbaru pada 360px dan 1280px. Pastikan tampilan final tetap menyelesaikan transaksi kurang dari 30 detik sebelum menyetujui Gate B.
 
 ## Versi
 
-- Repository/software: `0.3.0-alpha.3`.
+- Repository/software: `0.3.0-alpha.4`.
 - Baseline PRD: MVP `v3.1`.
 
 Lihat `CHANGELOG.md` untuk perubahan repository.

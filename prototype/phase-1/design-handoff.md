@@ -1,6 +1,6 @@
 <!--
 @file design-handoff.md
-@version 0.1.0
+@version 0.2.0
 @description Brief handoff untuk penyempurnaan visual Parissa POS oleh AI Design atau UI designer lain.
 -->
 
@@ -8,11 +8,11 @@
 
 **Tanggal:** 22 Juli 2026
 
-**Repository:** Parissa-MVP `v0.3.0-alpha.3`
+**Repository:** Parissa-MVP `v0.3.0-alpha.4`
 
 **Fase:** Phase 1 — UX Prototype
 
-**Status:** Flow utama telah diuji manual oleh Owner dan dinyatakan aman; visual UI masih perlu disempurnakan sebelum Gate B.
+**Status:** Flow utama telah diuji manual oleh Owner dan dinyatakan aman; mockup eksternal 23 Juli 2026 sudah diadaptasi dan menunggu review visual final sebelum Gate B.
 
 ## 1. Tujuan Handoff
 

@@ -1,6 +1,6 @@
 <!--
 @file CHANGELOG.md
-@version 0.3.0-alpha.3
+@version 0.3.0-alpha.4
 @description Riwayat perubahan repository Parissa POS MVP.
 -->
 
@@ -12,7 +12,33 @@ Semua perubahan penting repository dicatat di dokumen ini. Versi repository meng
 
 ### Planned
 
-- Penyempurnaan visual eksternal dan review final sebelum Gate B.
+- Review visual final prototype hasil adaptasi dan validasi waktu transaksi sebelum Gate B.
+
+## [0.3.0-alpha.4] — 2026-07-23
+
+### Changed
+
+- Mengadaptasi visual mockup eksternal terbaru ke prototype HTML mandiri tanpa runtime tool desain.
+- Menyesuaikan desktop menjadi navigation 84px, katalog fleksibel, cart 392px, kartu produk vertikal, serta ikon kategori.
+- Menambahkan bottom navigation mobile dan skenario loading skeleton.
+- Mempertahankan nomor transaksi hanya pada confirmation state setelah submit berhasil.
+
+### Added
+
+- Catatan provenance, checksum sumber, keputusan adaptasi, dan batas source of truth pada `design-import-notes.md`.
+- `.gitignore` untuk mengecualikan cache lokal `.design-sync/` yang menduplikasi guideline dan asset repository.
+
+### Validation
+
+- HTML parse, JavaScript syntax, logo asset, dan konsistensi VERSION lulus pemeriksaan statis.
+- Playwright lulus pada 360px, 768px, 1280px, dan 1920px tanpa horizontal page scroll.
+- Flow desktop lunas, server error/retry, serta flow mobile piutang dan validasi nama pelanggan lulus uji klik.
+- Bottom sheet mobile diverifikasi mengikuti tinggi konten dan tidak menyisakan ruang kosong berlebihan.
+
+### Status
+
+- Flow dan business rule tidak berubah.
+- Gate B masih menunggu review visual final dan validasi transaksi umum kurang dari 30 detik.
 
 ## [0.3.0-alpha.3] — 2026-07-22
 
