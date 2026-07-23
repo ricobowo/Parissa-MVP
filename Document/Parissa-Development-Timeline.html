@@ -1,6 +1,6 @@
 <!--
 @file Parissa-Development-Timeline.html
-@version 0.2.0
+@version 0.3.0
 @description Timeline interaktif pengembangan Parissa POS dari Gate A sampai pasca-MVP.
 -->
 <!doctype html>
@@ -677,13 +677,13 @@
           <span class="brand__meta">Development roadmap · 23 Juli 2026</span>
         </span>
       </div>
-      <span class="gate-pill">Gate B disetujui</span>
+      <span class="gate-pill">Gate C disetujui</span>
     </div>
   </header>
   <main>
     <section class="hero" aria-labelledby="page-title">
       <div>
-        <p class="eyebrow">Roadmap MVP · Juli–Oktober 2026</p>
+        <p class="eyebrow">Roadmap MVP · Juli–September 2026</p>
         <h1 id="page-title">Dari prototype menuju POS yang siap digunakan.</h1>
         <p class="hero__lead">
           Rencana kerja bertahap untuk membangun core POS lebih dulu, memvalidasi angka
@@ -691,8 +691,8 @@
         </p>
         <div class="status-note">
           <div>
-            <strong>Gate B disetujui Owner pada 23 Juli 2026.</strong>
-            <span>Flow, visual, dan kriteria waktu sudah dikunci. Phase 2 dapat dimulai setelah checkpoint ini dipublikasikan.</span>
+            <strong>Gate C disetujui Owner pada 23 Juli 2026.</strong>
+            <span>Fondasi aplikasi dan database telah lulus verifikasi. Phase 2 selesai dan implementasi Core POS Phase 3 aktif.</span>
           </div>
         </div>
       </div>
@@ -722,11 +722,11 @@
     <section class="overview" aria-label="Ringkasan rencana">
       <div class="overview__item">
         <span class="overview__label">Posisi saat ini</span>
-        <span class="overview__value">Phase 2 · siap dimulai</span>
+        <span class="overview__value">Phase 3 · aktif</span>
       </div>
       <div class="overview__item">
         <span class="overview__label">Target release MVP</span>
-        <span class="overview__value">18 September 2026</span>
+        <span class="overview__value">17 Agustus 2026</span>
       </div>
       <div class="overview__item">
         <span class="overview__label">Migrasi historis</span>
@@ -799,14 +799,14 @@
             </div>
           </div>
         </article>
-        <article class="phase" data-status="active">
+        <article class="phase" data-status="complete">
           <div class="phase__rail"><span class="phase__dot"></span></div>
-          <div class="phase__date"><strong>27 Jul–7 Agu</strong>10 hari kerja</div>
+          <div class="phase__date"><strong>23 Jul 2026</strong>selesai lebih awal</div>
           <div class="phase__body">
-            <button class="phase__button" type="button" aria-expanded="true" aria-controls="phase-2-detail">
+            <button class="phase__button" type="button" aria-expanded="false" aria-controls="phase-2-detail">
               <span>
-                <span class="phase__title-row"><h3>Phase 2 — Engineering Foundation</h3><span class="status-tag">Aktif</span></span>
-                <span class="phase__summary">Fondasi aplikasi, database, keamanan, quality gate, dan CI siap dimulai.</span>
+                <span class="phase__title-row"><h3>Phase 2 — Engineering Foundation</h3><span class="status-tag">Selesai</span></span>
+                <span class="phase__summary">Fondasi aplikasi, database, keamanan, quality gate, dan CI telah disetujui.</span>
               </span>
               <span class="phase__chevron" aria-hidden="true">⌄</span>
             </button>
@@ -819,17 +819,17 @@
                   <li>Mutation atomik dan idempotent untuk membuat transaksi, mengubah pembayaran, dan void.</li>
                 </ul>
               </div>
-              <div class="exit"><h4>Exit · Gate C</h4><p>Build, lint, type-check, test dasar, schema, RLS, dan seed seluruhnya lulus.</p></div>
+              <div class="exit"><h4>Exit · Gate C</h4><p>Gate C disetujui 23 Juli 2026 setelah build, lint, type-check, test, schema, RLS, dan seed seluruhnya lulus.</p></div>
             </div>
           </div>
         </article>
-        <article class="phase" data-status="planned">
+        <article class="phase" data-status="active">
           <div class="phase__rail"><span class="phase__dot"></span></div>
-          <div class="phase__date"><strong>10–21 Agu</strong>10 hari kerja</div>
+          <div class="phase__date"><strong>24 Jul–3 Agu</strong>5–7 hari kerja</div>
           <div class="phase__body">
-            <button class="phase__button" type="button" aria-expanded="false" aria-controls="phase-3-detail">
+            <button class="phase__button" type="button" aria-expanded="true" aria-controls="phase-3-detail">
               <span>
-                <span class="phase__title-row"><h3>Phase 3 — Core POS</h3><span class="status-tag">Mendatang</span></span>
+                <span class="phase__title-row"><h3>Phase 3 — Core POS</h3><span class="status-tag">Aktif</span></span>
                 <span class="phase__summary">Mengubah flow tervalidasi menjadi transaksi production yang aman.</span>
               </span>
               <span class="phase__chevron" aria-hidden="true">⌄</span>
@@ -849,7 +849,7 @@
         </article>
         <article class="phase" data-status="planned">
           <div class="phase__rail"><span class="phase__dot"></span></div>
-          <div class="phase__date"><strong>24 Agu–4 Sep</strong>10 hari kerja</div>
+          <div class="phase__date"><strong>4–10 Agu</strong>4–5 hari kerja</div>
           <div class="phase__body">
             <button class="phase__button" type="button" aria-expanded="false" aria-controls="phase-4-detail">
               <span>
@@ -873,7 +873,7 @@
         </article>
         <article class="phase" data-status="planned">
           <div class="phase__rail"><span class="phase__dot"></span></div>
-          <div class="phase__date"><strong>7–18 Sep</strong>10 hari kerja</div>
+          <div class="phase__date"><strong>11–17 Agu</strong>4–5 hari kerja</div>
           <div class="phase__body">
             <button class="phase__button" type="button" aria-expanded="false" aria-controls="phase-5-detail">
               <span>
@@ -897,7 +897,7 @@
         </article>
         <article class="phase" data-status="planned">
           <div class="phase__rail"><span class="phase__dot"></span></div>
-          <div class="phase__date"><strong>21 Sep–2 Okt</strong>10 hari kerja</div>
+          <div class="phase__date"><strong>18–31 Agu</strong>2 minggu</div>
           <div class="phase__body">
             <button class="phase__button" type="button" aria-expanded="false" aria-controls="phase-6-detail">
               <span>
@@ -921,7 +921,7 @@
         </article>
         <article class="phase" data-status="planned">
           <div class="phase__rail"><span class="phase__dot"></span></div>
-          <div class="phase__date"><strong>5–16 Okt</strong>10 hari kerja</div>
+          <div class="phase__date"><strong>1–14 Sep</strong>proyek terpisah</div>
           <div class="phase__body">
             <button class="phase__button" type="button" aria-expanded="false" aria-controls="migration-detail">
               <span>
@@ -952,7 +952,7 @@
         <p>Perubahan scope atau temuan keamanan dapat menggeser tanggal. Gate tetap menjadi pengendali kapan fase berikutnya boleh dimulai.</p>
       </div>
       <ul>
-        <li>Gate B ditutup 23 Juli 2026 dan jadwal Phase 2 diasumsikan mulai Senin, 27 Juli 2026.</li>
+        <li>Gate C ditutup 23 Juli 2026; Phase 2 selesai lebih awal dari baseline dan Phase 3 dapat dimulai 24 Juli 2026.</li>
         <li>Estimasi mengasumsikan satu jalur pengerjaan utama dengan review Owner tersedia pada akhir setiap gate.</li>
         <li>Bug kritis, perubahan requirement, atau UAT yang gagal harus diselesaikan sebelum gate ditutup.</li>
         <li>Migrasi historis sengaja dipisahkan agar release awal tidak bergantung pada data lama yang belum konsisten.</li>
@@ -960,7 +960,7 @@
     </aside>
   </main>
   <footer>
-    Parissa POS · Baseline timeline 23 Juli 2026 · Sumber: PRD v3.1, Project Restart Plan, dan hasil uji manual Owner.
+    Parissa POS · Timeline diperbarui setelah Gate C · 23 Juli 2026 · Sumber: PRD v3.1, Project Restart Plan, dan hasil verifikasi.
   </footer>
   <script>
     const filterButtons = [...document.querySelectorAll(".filter-button")];

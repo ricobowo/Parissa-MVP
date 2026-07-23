@@ -1,6 +1,6 @@
 <!--
 @file design-handoff.md
-@version 0.2.3
+@version 0.2.4
 @description Brief handoff untuk penyempurnaan visual Parissa POS oleh AI Design atau UI designer lain.
 -->
 
@@ -8,9 +8,9 @@
 
 **Tanggal:** 22 Juli 2026
 
-**Repository:** Parissa-MVP `v0.3.0`
+**Repository:** Parissa-MVP `v0.4.0`
 
-**Fase:** Phase 1 — selesai; baseline untuk Phase 2
+**Fase:** Phase 1 — selesai; baseline visual untuk implementasi Core POS Phase 3
 
 **Status:** Flow dan visual final disetujui Owner sebagai Gate B pada 23 Juli 2026. Dokumen ini menjadi acuan implementasi, bukan lagi brief eksplorasi.
 

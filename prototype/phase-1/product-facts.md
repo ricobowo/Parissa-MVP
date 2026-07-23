@@ -1,6 +1,6 @@
 <!--
 @file product-facts.md
-@version 0.1.1
+@version 0.1.2
 @description Fakta produk yang digunakan sebagai dasar prototype Parissa POS Phase 1.
 -->
 
@@ -17,9 +17,9 @@
 ## Current State
 
 - Gate A disetujui 22 Juli 2026.
-- Fase aktif adalah Phase 2 — Engineering Foundation.
+- Fase aktif adalah Phase 3 — Core POS.
 - Prototype bukan aplikasi production dan tidak terhubung ke database.
-- Gate B disetujui 23 Juli 2026; engineering foundation siap dimulai setelah checkpoint dipublikasikan.
+- Gate B dan Gate C disetujui 23 Juli 2026; prototype menjadi acuan visual dan flow untuk implementasi Core POS.
 
 ## Primary Users
 

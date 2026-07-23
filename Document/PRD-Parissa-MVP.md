@@ -1,6 +1,6 @@
 <!--
 @file PRD-Parissa-MVP.md
-@version 1.1.1
+@version 1.1.3
 @description PRD ringkas untuk pembangunan ulang MVP Parissa POS.
 -->
 
@@ -12,7 +12,7 @@
 | **Last Updated** | 23 Juli 2026 |
 | **Author** | Rico (Owner) |
 | **Status** | Approved — Gate A (22 Juli 2026) |
-| **Fase Aktif** | Phase 2 — Engineering Foundation |
+| **Fase Aktif** | Phase 3 — Core POS; Gate C disetujui 23 Juli 2026 |
 | **Repository Lama** | https://github.com/ricobowo/Parissa.git |
 | **Data Source** | Airtable Base “Parissa” + seed data repository lama |
 | **Dokumen Sebelumnya** | `Document/PRD-Parissa.md` v2.4 |
@@ -397,6 +397,8 @@ README harus sinkron dengan PRD, VERSION, CHANGELOG, progress, dependency, dan s
 ### Produk dan normalisasi margin
 
 Margin dinormalisasi menggunakan gross margin terhadap harga jual: `gross_margin_pct = ((price - cost) / price) × 100`, markup: `markup_pct = ((price - cost) / cost) × 100` (lihat `Document/MVP/03-Business-Rules.md` §6). Nilai HPP resmi dan margin/markup aktual per produk bersumber dari Airtable Parissa dan dikonfirmasi Owner pada 23 Juli 2026, disimpan di sistem internal, dan tidak dipublikasikan di repository publik ini untuk menjaga kerahasiaan struktur biaya bisnis. Angka dari PRD v2.4 dinyatakan keliru dan tidak boleh digunakan sebagai source of truth. Database menyimpan presisi dua desimal, sedangkan UI menampilkan Rupiah tanpa desimal.
+
+
 
 
 

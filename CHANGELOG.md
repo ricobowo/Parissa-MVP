@@ -1,6 +1,6 @@
 <!--
 @file CHANGELOG.md
-@version 0.3.0
+@version 0.4.0
 @description Riwayat perubahan repository Parissa POS MVP.
 -->
 
@@ -12,7 +12,62 @@ Semua perubahan penting repository dicatat di dokumen ini. Versi repository meng
 
 ### Planned
 
-- Mulai Phase 2 — Engineering Foundation setelah checkpoint Gate B dipublikasikan.
+- Implementation plan dan pengembangan Core POS Phase 3.
+
+## [0.4.0] — 2026-07-23
+
+### Changed
+
+- Menutup Engineering Foundation sebagai Gate C dan mengaktifkan Core POS Phase 3.
+- Menyelaraskan PRD, dokumen MVP, restart plan, handoff prototype, README, AGENTS, dan timeline interaktif dengan status terbaru.
+- Menetapkan versi stabil foundation menjadi `0.4.0`.
+- Menetapkan Airtable Parissa sebagai sumber HPP resmi setelah Owner menyatakan angka PRD v2.4 keliru.
+- Menyelaraskan HPP enam produk pada seed dan dokumentasi dengan presisi dua desimal.
+- Menghitung HPP Bundling 3pcs sebagai tiga kali HPP per pcs Airtable.
+- Mencatat OrbStack sebagai runtime Docker-compatible untuk verifikasi Supabase lokal.
+- Menambahkan migration guard eksplisit untuk menolak input transaction `items = null`.
+- Menggunakan database types hasil generate schema lokal pada Supabase client.
+
+### Added
+
+- 18 integration test database untuk HPP seed, transaksi atomik, snapshot, idempotensi, pembayaran, void, dan audit.
+
+### Validation
+
+- Database reset lulus dengan dua migration dan seed resmi Airtable.
+- Database lint lulus tanpa schema error.
+- Seluruh 23 pgTAP test lulus: 5 RLS test dan 18 integration test transaksi.
+- Enam HPP terverifikasi tepat pada tabel `products`.
+- Format, lint, TypeScript strict, 10 unit test, production build, serta 4 Playwright viewport lulus.
+
+### Status
+
+- Gate C disetujui Owner pada 23 Juli 2026.
+- Engineering Foundation Phase 2 selesai dan Core POS Phase 3 aktif.
+- HPP dan seluruh verifikasi lokal tidak lagi menjadi keputusan terbuka.
+
+## [0.4.0-alpha.1] — 2026-07-23
+
+### Added
+
+- Scaffold Next.js 16 App Router, React 19, TypeScript strict, Tailwind CSS v4, dan shadcn/ui `base-nova`.
+- Token warna semantik Parissa, halaman status foundation, dan asset logo lokal.
+- Supabase CLI, migration enam tabel, RLS Owner/Kasir/anonymous/inactive, seed dua role, dan enam produk development.
+- RPC atomik/idempotent untuk create transaction, perubahan pembayaran, dan Owner-only void.
+- TanStack Query provider, Zod boundary, Supabase client factory, database types, serta error convention.
+- Vitest, Playwright empat viewport, ESLint, Prettier, dan GitHub Actions CI.
+
+### Validation
+
+- ESLint, TypeScript strict, 10 unit test, production build, dan empat smoke test Playwright lulus.
+- Smoke test lulus pada 360px, 768px, 1280px, dan 1920px tanpa horizontal overflow.
+- Database test belum dijalankan karena mesin lokal belum memiliki Docker-compatible runtime.
+- Audit dependency mencatat enam advisory upstream/transitive tanpa critical issue; perbaikan otomatis memerlukan downgrade/breaking change dan tidak diterapkan.
+
+### Status
+
+- Phase 2 aktif dan Gate C belum disetujui.
+- HPP pada seed mengikuti angka indikatif Appendix A PRD v3.1 sampai dikonfirmasi Owner.
 
 ## [0.3.0] — 2026-07-23
 

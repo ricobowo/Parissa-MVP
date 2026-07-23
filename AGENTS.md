@@ -1,6 +1,6 @@
 <!--
 @file AGENTS.md
-@version 0.3.0
+@version 0.4.0
 @description Instruksi kerja wajib untuk agent pada repository Parissa POS MVP.
 -->
 
@@ -12,9 +12,9 @@ Dokumen ini berlaku untuk seluruh repository. Instruksi yang lebih spesifik di s
 
 - Baseline produk: PRD MVP v3.1, disetujui 22 Juli 2026.
 - Versi repository: lihat `VERSION`.
-- Fase aktif: Phase 2 — Engineering Foundation.
-- Status: Gate A dan Gate B disetujui. Flow serta visual prototype diterima Owner pada 23 Juli 2026; median transaksi 7 detik dari lima percobaan.
-- Batas fase: scaffold dan kode foundation Phase 2 boleh dimulai. Jangan mengimplementasikan fitur di luar scope P0 atau melompati Gate C.
+- Fase aktif: Phase 3 — Core POS.
+- Status: Gate A, Gate B, dan Gate C disetujui. Foundation Phase 2, dua migration, seed HPP Airtable, database types, CI, serta seluruh verifikasi aplikasi dan database lokal tersedia.
+- Batas fase: implementasi Core POS Phase 3 boleh dimulai. Jangan menerapkan migration ke remote/production tanpa task deployment yang jelas. Airtable Parissa adalah sumber HPP resmi; angka HPP PRD v2.4 dinyatakan keliru.
 
 ## Source of Truth
 
@@ -28,6 +28,9 @@ Gunakan urutan berikut ketika dokumen berbeda:
 6. `Document/MVP/05-POS-Flow.md`, `06-Design-Brief.md`, dan `07-Acceptance-Criteria.md` untuk flow, desain, dan release gate.
 7. `prototype/phase-1/design-handoff.md` untuk brief visual eksternal dan `design-import-notes.md` untuk keputusan adaptasinya; kedua file tidak boleh mengubah source of truth di atasnya.
 8. `Document/Project-Restart-Plan.md` untuk urutan fase.
+9. `Document/MVP/08-Engineering-Foundation.md` untuk struktur, command, dan status verifikasi Phase 2.
+
+Untuk nilai HPP enam produk, gunakan seed yang telah diselaraskan dari Airtable Parissa pada 23 Juli 2026. Jangan mengembalikan angka indikatif PRD v2.4.
 
 Jika konflik memengaruhi scope, data, formula, permission, atau perilaku bisnis, berhenti dan minta keputusan Owner. Jangan menyelesaikan konflik dengan asumsi tersembunyi.
 
@@ -52,9 +55,12 @@ Brand asset boleh menyusul dengan placeholder jujur, tetapi ketersediaannya haru
 
 Flow produk → cart → pembayaran → pelanggan → submit → konfirmasi, perilaku responsif, state error/retry, dan arah visual prototype disetujui. Lima pengujian manual menghasilkan median 7 detik dan seluruhnya di bawah 30 detik.
 
+### Gate C — disetujui 23 Juli 2026
+
+Schema enam tabel, RLS Owner/Kasir/anonymous/inactive user, seed role dan enam produk dengan HPP Airtable, mutation atomik/idempotent, database types, serta fixture aplikasi/database telah diverifikasi dan disetujui. Phase 2 selesai pada Parissa-MVP `v0.4.0`; Core POS Phase 3 boleh dimulai.
+
 ### Gate berikutnya
 
-- Gate C: schema, RLS, seed, dan fixture disetujui sebelum migration.
 - Gate D: core POS lulus UAT.
 - Gate E: seluruh acceptance criteria dan quality gate lulus sebelum production.
 

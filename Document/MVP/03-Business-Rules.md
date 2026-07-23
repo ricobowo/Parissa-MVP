@@ -1,6 +1,6 @@
 <!--
 @file 03-Business-Rules.md
-@version 1.1.1
+@version 1.1.2
 @description Aturan bisnis dan formula resmi untuk MVP Parissa POS.
 -->
 
@@ -8,7 +8,7 @@
 
 **Status:** Gate A disetujui 22 Juli 2026.
 
-**Fase aktif:** Phase 2 — Engineering Foundation; Gate B disetujui 23 Juli 2026.
+**Fase aktif:** Phase 3 — Core POS; Gate C disetujui 23 Juli 2026.
 
 ## 1. Transaksi
 

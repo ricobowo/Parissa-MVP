@@ -1,14 +1,14 @@
 <!--
 @file README.md
-@version 0.3.0
-@description Baseline repository Parissa POS berdasarkan PRD MVP v3.1.
+@version 0.4.0
+@description Engineering foundation Parissa POS berdasarkan PRD MVP v3.1.
 -->
 
 # Parissa POS MVP
 
 Parissa POS adalah aplikasi web responsif untuk membantu bisnis dessert dan minuman Parissa di Bandung mencatat penjualan dalam kurang dari 30 detik dan menghasilkan angka omzet, HPP, gross profit, serta piutang yang dapat dipercaya.
 
-> **Status:** Gate A dan Gate B disetujui. Prototype UX `0.3.0` diterima Owner pada 23 Juli 2026 dengan median transaksi 7 detik. Phase 2 — Engineering Foundation siap dimulai.
+> **Status:** Gate A, Gate B, dan Gate C disetujui. Phase 2 — Engineering Foundation selesai pada `0.4.0`; Phase 3 — Core POS aktif.
 
 ## Sasaran MVP
 
@@ -38,7 +38,7 @@ Recipe/BOM, pricing calculator, inventory, purchase/supplier, batching/expiry, p
 | Area | Keputusan | Status |
 |---|---|---|
 | Definisi margin | Gross margin terhadap harga jual | Disetujui |
-| Sumber HPP | Manual per produk, disalin sebagai snapshot | Disetujui |
+| Sumber HPP | Airtable Parissa, disimpan manual per produk dan disalin sebagai snapshot | Disetujui |
 | Pelanggan transaksi lunas | Opsional; tampil sebagai “Pelanggan Umum” | Disetujui |
 | Pelanggan piutang | Nama wajib, telepon opsional | Disetujui |
 | Pre-order | Di luar P0 | Disetujui |
@@ -57,17 +57,52 @@ Untuk penjualan Rp100.000 dengan HPP Rp60.000:
 
 Data historis belum dimasukkan karena ditemukan selisih jumlah transaksi dan angka cost/profit antara sumber data dan dashboard lama. Data tidak dibuang: rekonsiliasi dan migrasi dilakukan sebagai proyek pasca-MVP dengan staging, dry-run, validasi total, dan pencegahan duplikat.
 
-## Stack yang Direncanakan
+## Stack Phase 2
 
-- Next.js App Router dan TypeScript strict.
-- Tailwind CSS dan shadcn/ui.
-- Supabase PostgreSQL, Auth, dan RLS.
+- Next.js 16 App Router, React 19, dan TypeScript strict.
+- Tailwind CSS v4 dan shadcn/ui `base-nova` berbasis Base UI.
+- Supabase PostgreSQL/Auth/RLS dan Supabase CLI lokal.
 - TanStack Query untuk server state interaktif.
-- Zod untuk form dan input boundary.
-- Unit/integration test dan Playwright E2E.
+- Zod 4 untuk form dan input boundary.
+- Vitest, Playwright, ESLint, Prettier, dan GitHub Actions.
 - Vercel untuk preview dan production.
 
-Stack ini telah disetujui untuk mulai di-scaffold pada Phase 2 setelah Gate B ditutup.
+Token shadcn menggunakan warna semantik Parissa. Dark mode tidak diaktifkan karena berada di luar scope MVP.
+
+## Menjalankan Foundation
+
+Prasyarat:
+
+- Node.js 20.9 atau lebih baru.
+- npm 11.
+- Docker Desktop, OrbStack, atau runtime Docker-compatible lain untuk Supabase lokal.
+
+```bash
+npm install
+cp .env.example .env.local
+npm run dev
+```
+
+Quality gate aplikasi:
+
+```bash
+npm run lint
+npm run type-check
+npm run test:run
+npm run build
+npm run test:e2e
+```
+
+Database lokal:
+
+```bash
+npm run supabase:start
+npm run db:reset
+npm run db:lint
+npm run db:test
+```
+
+Nilai `NEXT_PUBLIC_SUPABASE_ANON_KEY` lokal diperoleh dari output `npm run supabase:start`. Jangan commit `.env.local` atau secret Supabase.
 
 ## Prototype Phase 1
 
@@ -88,8 +123,8 @@ Keputusan visual sementara: tipografi ringan–menengah (400/500/600), surface n
 |---|---|---|
 | 0 — Product Definition | PRD v3.1, formula, scope, strategi data, dan asset fallback disetujui | Gate A — selesai |
 | 1 — UX Prototype | Flow POS mobile/desktop tervalidasi <30 detik | Gate B — selesai |
-| 2 — Engineering Foundation | App kosong, schema, RLS, seed, CI, quality gate | Gate C |
-| 3 — Core POS | Produk, cart, transaksi, dan konfirmasi | Gate D/UAT |
+| 2 — Engineering Foundation | App kosong, schema, RLS, seed, CI, quality gate | Gate C — selesai |
+| 3 — Core POS | Produk, cart, transaksi, dan konfirmasi | Aktif; menuju Gate D/UAT |
 | 4 — History & Dashboard | Piutang, void, audit, dan metrik terverifikasi | Gate D/UAT |
 | 5 — Validation & Release | E2E, device QA, UAT, backup/rollback, deploy | Gate E |
 | 6 — Pasca-MVP | Evaluasi dua minggu, rekonsiliasi/migrasi historis, prioritas backlog | Gate terpisah |
@@ -105,6 +140,7 @@ Keputusan visual sementara: tipografi ringan–menengah (400/500/600), surface n
 - [POS Flow](Document/MVP/05-POS-Flow.md)
 - [Design Brief](Document/MVP/06-Design-Brief.md)
 - [Acceptance Criteria](Document/MVP/07-Acceptance-Criteria.md)
+- [Engineering Foundation](Document/MVP/08-Engineering-Foundation.md)
 - [Timeline Development Interaktif](Document/Parissa-Development-Timeline.html)
 - [Instruksi Agent](AGENTS.md)
 - [Riwayat Perubahan](CHANGELOG.md)
@@ -121,6 +157,18 @@ Keputusan visual sementara: tipografi ringan–menengah (400/500/600), surface n
 │   ├── PRD-Parissa-MVP.md
 │   └── Project-Restart-Plan.md
 ├── README.md
+├── package.json
+├── src/
+│   ├── app/
+│   ├── components/ui/
+│   ├── lib/
+│   └── types/
+├── supabase/
+│   ├── migrations/
+│   ├── tests/
+│   └── seed.sql
+├── tests/
+│   └── e2e/
 ├── prototype/
 │   └── phase-1/
 │       ├── assets/
@@ -131,16 +179,17 @@ Keputusan visual sementara: tipografi ringan–menengah (400/500/600), surface n
 │       ├── pos-prototype.html
 │       ├── product-facts.md
 │       └── README.md
-└── VERSION
+├── VERSION
+└── .github/workflows/ci.yml
 ```
 
 ## Langkah Berikutnya
 
-Commit dan push checkpoint Gate B secara terpisah, lalu mulai Phase 2 dengan scaffold engineering foundation dan quality gate minimum.
+Susun implementation plan Phase 3, lalu bangun login, katalog produk, quick-sale grid, cart, transaksi atomik, dan konfirmasi berdasarkan prototype yang telah disetujui.
 
 ## Versi
 
-- Repository/software: `0.3.0`.
+- Repository/software: `0.4.0`.
 - Baseline PRD: MVP `v3.1`.
 
 Lihat `CHANGELOG.md` untuk perubahan repository.

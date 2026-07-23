@@ -1,0 +1,15 @@
+# @file .prettierignore
+# @version 0.1.0
+# @description Artefak yang tidak perlu diformat.
+
+.next
+coverage
+node_modules
+playwright-report
+test-results
+prototype
+Document
+AGENTS.md
+CHANGELOG.md
+README.md
+package-lock.json

@@ -1,6 +1,6 @@
 <!--
 @file 04-Data-Model.md
-@version 1.1.1
+@version 1.3.0
 @description Model data minimum dan relasi utama MVP Parissa POS.
 -->
 
@@ -8,7 +8,7 @@
 
 **Status:** Gate A disetujui 22 Juli 2026.
 
-**Fase aktif:** Phase 2 — Engineering Foundation; schema siap dirancang untuk Gate C.
+**Fase aktif:** Phase 3 — Core POS; schema, RLS, seed, dan migration lokal disetujui melalui Gate C pada 23 Juli 2026.
 
 ## ERD Ringkas
 
@@ -102,6 +102,8 @@ erDiagram
 | created_at | timestamptz | Required |
 
 ## Database Rules
+
+Implementasi draft berada di `supabase/migrations/20260723000100_initial_mvp_foundation.sql`. File migration belum diterapkan ke remote.
 
 - Seluruh mutation memakai RLS dan transaction-safe RPC.
 - Total tidak dipercaya dari client; database menghitung dari snapshot items.

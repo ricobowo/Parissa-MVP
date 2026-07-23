@@ -1,2 +1,29 @@
 # Cache lokal dari tool sinkronisasi desain; source of truth tetap di prototype/ dan Document/.
 .design-sync/
+
+# Dependency dan output build aplikasi.
+node_modules/
+.next/
+out/
+build/
+coverage/
+playwright-report/
+test-results/
+*.tsbuildinfo
+next-env.d.ts
+
+# Environment dan konfigurasi deployment lokal.
+.env*
+!.env.example
+.vercel/
+
+# Cache Supabase lokal; migration dan seed tetap dilacak.
+supabase/.branches/
+supabase/.temp/
+
+# Log dan file sistem.
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+*.pem

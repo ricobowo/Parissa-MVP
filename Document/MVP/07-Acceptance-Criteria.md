@@ -1,6 +1,6 @@
 <!--
 @file 07-Acceptance-Criteria.md
-@version 1.2.2
+@version 1.2.3
 @description Acceptance criteria dan release gate MVP Parissa POS.
 -->
 
@@ -8,7 +8,7 @@
 
 **Status:** Gate A disetujui 22 Juli 2026.
 
-**Fase aktif:** Phase 2 — Engineering Foundation; Gate C menjadi approval berikutnya.
+**Fase aktif:** Phase 3 — Core POS; Gate C disetujui 23 Juli 2026 dan Gate D menjadi approval berikutnya.
 
 ## Authentication
 

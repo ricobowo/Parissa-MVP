@@ -1,6 +1,6 @@
 <!--
 @file 01-Product-Brief.md
-@version 1.1.1
+@version 1.1.2
 @description Ringkasan produk dan keputusan inti MVP Parissa POS.
 -->
 
@@ -8,7 +8,7 @@
 
 **Baseline:** PRD MVP v3.1 — Gate A disetujui 22 Juli 2026.
 
-**Fase aktif:** Phase 2 — Engineering Foundation; Gate B disetujui 23 Juli 2026.
+**Fase aktif:** Phase 3 — Core POS; Gate C disetujui 23 Juli 2026.
 
 ## Ringkasan
 

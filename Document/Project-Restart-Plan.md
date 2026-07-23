@@ -1,6 +1,6 @@
 <!--
 @file Project-Restart-Plan.md
-@version 1.5.1
+@version 1.6.0
 @description Rencana pembangunan ulang Parissa POS berdasarkan PRD MVP v3.1.
 -->
 
@@ -10,7 +10,7 @@
 
 **Tanggal:** 22 Juli 2026
 
-**Status:** Gate A dan Gate B disetujui — Phase 2 aktif
+**Status:** Gate A, Gate B, dan Gate C disetujui — Phase 3 aktif
 
 ## 1. Strategi Restart
 
@@ -83,18 +83,22 @@ Prinsip utama:
 
 **Durasi:** 3–4 hari
 
-- [ ] Scaffold aplikasi pada repository baru yang telah disetujui.
-- [ ] Setup Next.js strict, Tailwind, shadcn/ui, Supabase.
-- [ ] Setup ESLint, formatter, type-check, test, Playwright, CI.
-- [ ] Buat schema enam tabel dan RLS.
-- [ ] Seed dua role dan enam produk.
-- [ ] Buat conventions untuk query, validation, error, dan version header.
+- [x] Scaffold aplikasi pada repository baru yang telah disetujui.
+- [x] Setup Next.js strict, Tailwind, shadcn/ui, Supabase.
+- [x] Setup ESLint, formatter, type-check, test, Playwright, CI.
+- [x] Buat schema enam tabel dan RLS.
+- [x] Seed dua role dan enam produk development.
+- [x] Buat conventions untuk query, validation, error, dan version header.
 
-**Exit:** Empty app build dan seluruh quality gate lulus.
+**Progress 23 Juli 2026:** Quality gate aplikasi lulus. Airtable Parissa ditetapkan sebagai sumber HPP resmi; database reset dan lint lulus; 23 pgTAP test lulus; database types dihasilkan ulang. Owner menyetujui Gate C dan menutup Phase 2.
+
+**Exit:** Tercapai pada 23 Juli 2026; empty app build, schema, RLS, seed, mutation contract, dan seluruh quality gate lokal lulus serta disetujui melalui Gate C.
 
 ### Phase 3 — Core POS
 
 **Durasi:** 5–7 hari
+
+**Status:** Aktif setelah Gate C disetujui pada 23 Juli 2026.
 
 - [ ] Product list dan owner CRUD sederhana.
 - [ ] Quick-sale grid.
@@ -174,7 +178,7 @@ Prioritas hanya ditentukan setelah dua minggu penggunaan:
 ## 6. Milestone Keputusan
 
 - **Gate A:** PRD v3.1, formula, scope, dan strategi data disetujui 22 Juli 2026.
-- **Gate B:** Approve UX prototype.
-- **Gate C:** Approve schema dan seed.
+- **Gate B:** UX prototype disetujui 23 Juli 2026.
+- **Gate C:** Schema, RLS, seed, mutation contract, dan fixture disetujui 23 Juli 2026.
 - **Gate D:** Core POS UAT.
 - **Gate E:** Production release.

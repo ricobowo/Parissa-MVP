@@ -1,12 +1,12 @@
 <!--
 @file README.md
-@version 0.5.0
+@version 0.5.1
 @description Cara meninjau prototype UX Parissa POS Phase 1.
 -->
 
 # Phase 1 — UX Prototype
 
-Artefak ini memvalidasi flow POS sebelum engineering foundation dimulai.
+Artefak ini memvalidasi flow POS sebelum engineering foundation dan kini menjadi acuan implementasi Core POS Phase 3.
 
 ## Files
 
@@ -32,7 +32,7 @@ Buka file HTML langsung dari Finder atau browser. Prototype tidak membutuhkan se
 
 Flow utama sudah diuji manual oleh Owner dan dinyatakan aman pada 22 Juli 2026. Perbaikan kontras, densitas, target sentuh, navigasi, empty state, padding mobile kondisional, dan input quantity integer positif diterapkan pada 23 Juli 2026.
 
-Validasi waktu pada 23 Juli 2026 menghasilkan 4, 8, 9, 7, dan 3 detik: median 7 detik, rata-rata 6,2 detik, dan seluruh percobaan berada di bawah target 30 detik. Owner menyetujui Gate B pada 23 Juli 2026; prototype ini menjadi baseline implementasi Phase 2.
+Validasi waktu pada 23 Juli 2026 menghasilkan 4, 8, 9, 7, dan 3 detik: median 7 detik, rata-rata 6,2 detik, dan seluruh percobaan berada di bawah target 30 detik. Owner menyetujui Gate B pada 23 Juli 2026; setelah Gate C disetujui pada tanggal yang sama, prototype ini menjadi acuan flow dan visual untuk Phase 3.
 
 Mockup eksternal terbaru telah diadaptasi ke `pos-prototype.html` pada 23 Juli 2026. Prototype utama tetap mandiri dan tidak membutuhkan runtime tool desain.
 

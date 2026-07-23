@@ -1,6 +1,6 @@
 <!--
 @file 06-Design-Brief.md
-@version 1.2.2
+@version 1.2.3
 @description Arahan desain dan batas visual MVP Parissa POS.
 -->
 
@@ -8,7 +8,7 @@
 
 **Status:** Gate A disetujui 22 Juli 2026.
 
-**Fase aktif:** Phase 2 — Engineering Foundation; arah visual dikunci oleh Gate B.
+**Fase aktif:** Phase 3 — Core POS; arah visual dikunci oleh Gate B dan siap diimplementasikan di atas fondasi Gate C.
 
 ## Design Goal
 

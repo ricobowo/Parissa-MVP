@@ -1,6 +1,6 @@
 <!--
 @file 05-POS-Flow.md
-@version 1.2.3
+@version 1.2.4
 @description Alur pengguna dan state utama POS MVP Parissa.
 -->
 
@@ -8,7 +8,7 @@
 
 **Status:** Gate A disetujui 22 Juli 2026.
 
-**Fase aktif:** Phase 2 — Engineering Foundation; flow dikunci oleh Gate B.
+**Fase aktif:** Phase 3 — Core POS; flow dikunci oleh Gate B dan fondasi implementasi disetujui melalui Gate C.
 
 ## Happy Path
 
