@@ -1,0 +1,998 @@
+<!--
+@file Parissa-Development-Timeline.html
+@version 0.2.0
+@description Timeline interaktif pengembangan Parissa POS dari Gate A sampai pasca-MVP.
+-->
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Timeline interaktif pengembangan Parissa POS MVP.">
+  <title>Timeline Development — Parissa POS</title>
+  <style>
+    :root {
+      --brand: #bd4052; --brand-dark: #9f3042; --brand-soft: #f9ecee;
+      --accent: #e85c6d; --ink: #252324; --muted: #6d686a; --subtle: #8b8587;
+      --line: #e7e3e2; --surface: #ffffff; --canvas: #faf9f8; --surface-soft: #f3f2f1;
+      --success: #247353; --success-soft: #eaf5ef;
+      --warning: #8a5a16; --warning-soft: #fff5df;
+      --radius-sm: 10px; --radius-md: 16px; --radius-lg: 24px;
+      --shadow: 0 18px 50px rgba(37, 35, 36, 0.07); --content: 1180px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--canvas);
+      font-family: "Circular Std", "Avenir Next", "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+    button { font: inherit; }
+    button:focus-visible,
+    a:focus-visible {
+      outline: 3px solid rgba(189, 64, 82, 0.28);
+      outline-offset: 3px;
+    }
+    .topbar {
+      position: sticky;
+      z-index: 20;
+      top: 0;
+      border-bottom: 1px solid rgba(231, 227, 226, 0.9);
+      background: rgba(250, 249, 248, 0.94);
+      backdrop-filter: blur(16px);
+    }
+    .topbar__inner {
+      display: flex;
+      min-height: 72px;
+      max-width: var(--content);
+      margin: 0 auto;
+      padding: 0 24px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: flex;
+      min-width: 0;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+    .brand__text { min-width: 0; }
+    .brand__name,
+    .brand__meta { display: block; }
+    .brand__name { font-size: 15px; font-weight: 600; }
+    .brand__meta { color: var(--muted); font-size: 12px; }
+    .gate-pill {
+      display: inline-flex;
+      min-height: 36px;
+      padding: 8px 12px;
+      border: 1px solid #cae5d6;
+      border-radius: 999px;
+      align-items: center;
+      gap: 8px;
+      color: var(--success);
+      background: var(--success-soft);
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .gate-pill::before { width: 8px; height: 8px; border-radius: 50%; background: var(--success); content: ""; }
+    main {
+      max-width: var(--content);
+      margin: 0 auto;
+      padding: 64px 24px 80px;
+    }
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--brand-dark);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(360px, 0.88fr);
+      align-items: start;
+      gap: 52px;
+    }
+    h1,
+    h2,
+    h3,
+    p { margin-top: 0; }
+    h1 {
+      max-width: 720px;
+      margin-bottom: 20px;
+      font-size: clamp(40px, 5.2vw, 72px);
+      font-weight: 500;
+      letter-spacing: -0.055em;
+      line-height: 0.99;
+    }
+    .hero__lead {
+      max-width: 650px;
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-size: clamp(17px, 1.8vw, 21px);
+      line-height: 1.55;
+    }
+    .status-note {
+      display: flex;
+      max-width: 650px;
+      padding: 16px 18px;
+      border-left: 3px solid var(--brand);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      gap: 12px;
+      background: var(--surface);
+      box-shadow: 0 8px 24px rgba(37, 35, 36, 0.04);
+    }
+    .status-note strong {
+      display: block;
+      margin-bottom: 3px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .status-note span { color: var(--muted); font-size: 14px; }
+    .measurement {
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .measurement__head {
+      display: flex;
+      margin-bottom: 22px;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .measurement h2 {
+      margin-bottom: 4px;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    .measurement__caption {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .pass-badge {
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--success);
+      background: var(--success-soft);
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .bars {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 22px 1fr 38px;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .bar-track {
+      position: relative;
+      height: 8px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: var(--surface-soft);
+    }
+    .bar-fill {
+      width: calc(var(--seconds) / 30 * 100%);
+      min-width: 8px;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--brand);
+    }
+    .bar-value {
+      color: var(--ink);
+      font-weight: 600;
+      text-align: right;
+    }
+    .measurement__stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      gap: 12px;
+    }
+    .stat span,
+    .stat strong {
+      display: block;
+    }
+    .stat span {
+      margin-bottom: 3px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+    .stat strong {
+      font-size: 19px;
+      font-weight: 600;
+    }
+    .measurement__foot {
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .overview {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin: 56px 0 72px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--surface);
+    }
+    .overview__item {
+      padding: 22px 24px;
+      border-right: 1px solid var(--line);
+    }
+    .overview__item:last-child {
+      border-right: 0;
+    }
+    .overview__label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .overview__value {
+      font-size: 17px;
+      font-weight: 600;
+    }
+    .section-head {
+      display: flex;
+      margin-bottom: 24px;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .section-head h2 {
+      margin-bottom: 6px;
+      font-size: clamp(28px, 3vw, 38px);
+      font-weight: 500;
+      letter-spacing: -0.035em;
+    }
+    .section-head p {
+      max-width: 590px;
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+    .toolbar {
+      display: flex;
+      margin-bottom: 26px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .filters {
+      display: flex;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      gap: 4px;
+      background: var(--surface);
+    }
+    .filter-button,
+    .detail-toggle {
+      min-height: 40px;
+      border: 0;
+      border-radius: 9px;
+      cursor: pointer;
+    }
+    .filter-button {
+      padding: 8px 14px;
+      color: var(--muted);
+      background: transparent;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .filter-button:hover {
+      color: var(--ink);
+      background: var(--surface-soft);
+    }
+    .filter-button[aria-pressed="true"] {
+      color: #fff;
+      background: var(--ink);
+    }
+    .detail-toggle {
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      background: var(--surface);
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .detail-toggle:hover {
+      border-color: #cbc5c4;
+    }
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 16px;
+    }
+    .timeline::before {
+      position: absolute;
+      top: 24px;
+      bottom: 24px;
+      left: 23px;
+      width: 1px;
+      background: var(--line);
+      content: "";
+    }
+    .phase {
+      position: relative;
+      display: grid;
+      grid-template-columns: 48px 174px minmax(0, 1fr);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      transition: border-color 160ms ease, box-shadow 160ms ease;
+    }
+    .phase:hover {
+      border-color: #d8d2d1;
+      box-shadow: 0 12px 32px rgba(37, 35, 36, 0.045);
+    }
+    .phase[hidden] {
+      display: none;
+    }
+    .phase__rail {
+      position: relative;
+    }
+    .phase__dot {
+      position: absolute;
+      z-index: 2;
+      top: 30px;
+      left: 16px;
+      width: 15px;
+      height: 15px;
+      border: 4px solid var(--surface);
+      border-radius: 50%;
+      box-shadow: 0 0 0 1px var(--line);
+      background: #c8c3c2;
+    }
+    .phase[data-status="complete"] .phase__dot {
+      background: var(--success);
+    }
+    .phase[data-status="active"] {
+      border-color: #e9c7cc;
+    }
+    .phase[data-status="active"] .phase__dot {
+      background: var(--brand);
+    }
+    .phase__date {
+      padding: 25px 18px 24px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .phase__date strong {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--ink);
+      font-weight: 600;
+    }
+    .phase__body {
+      min-width: 0;
+      border-left: 1px solid var(--line);
+    }
+    .phase__button {
+      display: grid;
+      width: 100%;
+      padding: 22px 24px;
+      border: 0;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 20px;
+      color: inherit;
+      background: transparent;
+      cursor: pointer;
+      text-align: left;
+    }
+    .phase__title-row {
+      display: flex;
+      margin-bottom: 6px;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .phase h3 {
+      margin: 0;
+      font-size: 19px;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+    }
+    .phase__summary {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .status-tag {
+      padding: 5px 8px;
+      border-radius: 999px;
+      color: var(--muted);
+      background: var(--surface-soft);
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .phase[data-status="complete"] .status-tag {
+      color: var(--success);
+      background: var(--success-soft);
+    }
+    .phase[data-status="active"] .status-tag {
+      color: var(--brand-dark);
+      background: var(--brand-soft);
+    }
+    .phase__chevron {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      place-items: center;
+      color: var(--muted);
+      transition: transform 160ms ease;
+    }
+    .phase__button[aria-expanded="true"] .phase__chevron {
+      transform: rotate(180deg);
+    }
+    .phase__detail {
+      display: none;
+      padding: 0 24px 24px;
+    }
+    .phase__button[aria-expanded="true"] + .phase__detail {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 0.42fr);
+      gap: 30px;
+    }
+    .phase__detail h4 {
+      margin: 0 0 8px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .phase__detail ul {
+      display: grid;
+      margin: 0;
+      padding-left: 18px;
+      gap: 5px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .exit {
+      padding: 16px;
+      border-radius: var(--radius-sm);
+      background: var(--surface-soft);
+    }
+    .exit p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .assumptions {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      margin-top: 64px;
+      padding: 32px;
+      border-radius: var(--radius-lg);
+      gap: 44px;
+      color: #f8f5f4;
+      background: var(--ink);
+    }
+    .assumptions h2 {
+      margin-bottom: 10px;
+      font-size: 26px;
+      font-weight: 500;
+      letter-spacing: -0.025em;
+    }
+    .assumptions p {
+      margin-bottom: 0;
+      color: #c9c4c5;
+      font-size: 14px;
+    }
+    .assumptions ul {
+      display: grid;
+      margin: 0;
+      padding-left: 18px;
+      gap: 9px;
+      color: #e4e0e1;
+      font-size: 14px;
+    }
+    footer {
+      max-width: var(--content);
+      margin: 0 auto;
+      padding: 0 24px 48px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    @media (max-width: 860px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .measurement {
+        max-width: 620px;
+      }
+      .phase {
+        grid-template-columns: 48px minmax(0, 1fr);
+      }
+      .phase__date {
+        padding: 20px 24px 0;
+        grid-column: 2;
+      }
+      .phase__body {
+        grid-column: 2;
+        border-left: 0;
+      }
+      .phase__button {
+        padding-top: 10px;
+      }
+      .phase__button[aria-expanded="true"] + .phase__detail {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+      .assumptions {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+    @media (max-width: 640px) {
+      .topbar__inner {
+        min-height: 64px;
+        padding: 0 16px;
+      }
+      .brand img {
+        width: 36px;
+        height: 36px;
+      }
+      .brand__meta {
+        display: none;
+      }
+      .gate-pill {
+        min-height: 32px;
+        padding: 6px 9px;
+        font-size: 11px;
+      }
+      main {
+        padding: 42px 16px 56px;
+      }
+      h1 {
+        font-size: 42px;
+      }
+      .hero__lead {
+        font-size: 17px;
+      }
+      .measurement {
+        padding: 20px;
+      }
+      .overview {
+        grid-template-columns: 1fr;
+        margin: 40px 0 56px;
+      }
+      .overview__item {
+        padding: 16px 18px;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .overview__item:last-child {
+        border-bottom: 0;
+      }
+      .section-head {
+        display: block;
+      }
+      .toolbar {
+        align-items: stretch;
+        flex-direction: column;
+      }
+      .filters {
+        overflow-x: auto;
+      }
+      .filter-button {
+        flex: 1 0 auto;
+      }
+      .detail-toggle {
+        width: 100%;
+      }
+      .timeline::before {
+        left: 17px;
+      }
+      .phase {
+        grid-template-columns: 36px minmax(0, 1fr);
+      }
+      .phase__dot {
+        left: 10px;
+      }
+      .phase__date {
+        padding-right: 16px;
+      }
+      .phase__button {
+        padding: 9px 16px 18px 24px;
+        gap: 12px;
+      }
+      .phase h3 {
+        font-size: 17px;
+      }
+      .phase__detail {
+        padding: 0 16px 20px 24px;
+      }
+      .assumptions {
+        margin-top: 48px;
+        padding: 24px 20px;
+      }
+      footer {
+        padding: 0 16px 36px;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+    @media print {
+      .topbar,
+      .toolbar {
+        position: static;
+      }
+      .filter-button,
+      .detail-toggle {
+        display: none;
+      }
+      .phase {
+        break-inside: avoid;
+      }
+      .phase__detail {
+        display: grid !important;
+        grid-template-columns: 1fr 0.42fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <div class="brand">
+        <img src="../prototype/phase-1/assets/parissa-logo.png" alt="Logo Parissa">
+        <span class="brand__text">
+          <span class="brand__name">Parissa POS</span>
+          <span class="brand__meta">Development roadmap · 23 Juli 2026</span>
+        </span>
+      </div>
+      <span class="gate-pill">Gate B disetujui</span>
+    </div>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Roadmap MVP · Juli–Oktober 2026</p>
+        <h1 id="page-title">Dari prototype menuju POS yang siap digunakan.</h1>
+        <p class="hero__lead">
+          Rencana kerja bertahap untuk membangun core POS lebih dulu, memvalidasi angka
+          operasional, lalu merilis dengan aman tanpa mencampur migrasi data historis.
+        </p>
+        <div class="status-note">
+          <div>
+            <strong>Gate B disetujui Owner pada 23 Juli 2026.</strong>
+            <span>Flow, visual, dan kriteria waktu sudah dikunci. Phase 2 dapat dimulai setelah checkpoint ini dipublikasikan.</span>
+          </div>
+        </div>
+      </div>
+      <aside class="measurement" aria-labelledby="measurement-title">
+        <div class="measurement__head">
+          <div>
+            <h2 id="measurement-title">Uji waktu transaksi</h2>
+            <p class="measurement__caption">5 percobaan · target kurang dari 30 detik</p>
+          </div>
+          <span class="pass-badge">5/5 lulus</span>
+        </div>
+        <div class="bars" aria-label="Durasi lima percobaan transaksi">
+          <div class="bar-row"><span>01</span><div class="bar-track"><div class="bar-fill" style="--seconds: 4"></div></div><span class="bar-value">4 dtk</span></div>
+          <div class="bar-row"><span>02</span><div class="bar-track"><div class="bar-fill" style="--seconds: 8"></div></div><span class="bar-value">8 dtk</span></div>
+          <div class="bar-row"><span>03</span><div class="bar-track"><div class="bar-fill" style="--seconds: 9"></div></div><span class="bar-value">9 dtk</span></div>
+          <div class="bar-row"><span>04</span><div class="bar-track"><div class="bar-fill" style="--seconds: 7"></div></div><span class="bar-value">7 dtk</span></div>
+          <div class="bar-row"><span>05</span><div class="bar-track"><div class="bar-fill" style="--seconds: 3"></div></div><span class="bar-value">3 dtk</span></div>
+        </div>
+        <div class="measurement__stats">
+          <div class="stat"><span>Median</span><strong>7 dtk</strong></div>
+          <div class="stat"><span>Rata-rata</span><strong>6,2 dtk</strong></div>
+          <div class="stat"><span>Rentang</span><strong>3–9 dtk</strong></div>
+        </div>
+        <p class="measurement__foot">Batang penuh mewakili batas 30 detik. Data berasal dari pengujian manual Owner.</p>
+      </aside>
+    </section>
+    <section class="overview" aria-label="Ringkasan rencana">
+      <div class="overview__item">
+        <span class="overview__label">Posisi saat ini</span>
+        <span class="overview__value">Phase 2 · siap dimulai</span>
+      </div>
+      <div class="overview__item">
+        <span class="overview__label">Target release MVP</span>
+        <span class="overview__value">18 September 2026</span>
+      </div>
+      <div class="overview__item">
+        <span class="overview__label">Migrasi historis</span>
+        <span class="overview__value">Proyek terpisah pasca-MVP</span>
+      </div>
+    </section>
+    <section aria-labelledby="timeline-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Urutan kerja</p>
+          <h2 id="timeline-title">Timeline pengembangan</h2>
+          <p>Klik setiap fase untuk melihat deliverable dan syarat keluar. Filter membantu memusatkan perhatian pada pekerjaan yang relevan.</p>
+        </div>
+      </div>
+      <div class="toolbar">
+        <div class="filters" role="group" aria-label="Filter status fase">
+          <button class="filter-button" type="button" data-filter="all" aria-pressed="true">Semua</button>
+          <button class="filter-button" type="button" data-filter="complete" aria-pressed="false">Selesai</button>
+          <button class="filter-button" type="button" data-filter="active" aria-pressed="false">Aktif</button>
+          <button class="filter-button" type="button" data-filter="planned" aria-pressed="false">Mendatang</button>
+        </div>
+        <button class="detail-toggle" type="button" aria-pressed="false">Tampilkan semua detail</button>
+      </div>
+      <div class="timeline">
+        <article class="phase" data-status="complete">
+          <div class="phase__rail"><span class="phase__dot"></span></div>
+          <div class="phase__date"><strong>22 Jul 2026</strong>1 hari</div>
+          <div class="phase__body">
+            <button class="phase__button" type="button" aria-expanded="false" aria-controls="phase-0-detail">
+              <span>
+                <span class="phase__title-row"><h3>Phase 0 — Product Definition</h3><span class="status-tag">Selesai</span></span>
+                <span class="phase__summary">Scope, formula finansial, strategi data, dan baseline repository disetujui.</span>
+              </span>
+              <span class="phase__chevron" aria-hidden="true">⌄</span>
+            </button>
+            <div class="phase__detail" id="phase-0-detail">
+              <div>
+                <h4>Deliverable</h4>
+                <ul>
+                  <li>PRD v3.1 dan scope P0/P1 final.</li>
+                  <li>Gross margin, HPP snapshot, paid_at, piutang, dan void disepakati.</li>
+                  <li>Repository baru dengan baseline dokumentasi dan history bersih.</li>
+                </ul>
+              </div>
+              <div class="exit"><h4>Exit</h4><p>Gate A disetujui pada 22 Juli 2026.</p></div>
+            </div>
+          </div>
+        </article>
+        <article class="phase" data-status="complete">
+          <div class="phase__rail"><span class="phase__dot"></span></div>
+          <div class="phase__date"><strong>22–23 Jul 2026</strong>2 hari</div>
+          <div class="phase__body">
+            <button class="phase__button" type="button" aria-expanded="false" aria-controls="phase-1-detail">
+              <span>
+                <span class="phase__title-row"><h3>Phase 1 — UX Prototype</h3><span class="status-tag">Selesai</span></span>
+                <span class="phase__summary">Flow, visual, dan kriteria waktu disetujui Owner sebagai Gate B.</span>
+              </span>
+              <span class="phase__chevron" aria-hidden="true">⌄</span>
+            </button>
+            <div class="phase__detail" id="phase-1-detail">
+              <div>
+                <h4>Deliverable</h4>
+                <ul>
+                  <li>Flow produk → cart → pembayaran → pelanggan → submit → konfirmasi.</li>
+                  <li>Prototype responsif 360px dan desktop, termasuk error dan retry.</li>
+                  <li>Uji manual 4, 8, 9, 7, dan 3 detik; median 7 detik.</li>
+                </ul>
+              </div>
+              <div class="exit"><h4>Exit</h4><p>Gate B tercapai pada 23 Juli 2026. Prototype menjadi baseline implementasi Phase 2.</p></div>
+            </div>
+          </div>
+        </article>
+        <article class="phase" data-status="active">
+          <div class="phase__rail"><span class="phase__dot"></span></div>
+          <div class="phase__date"><strong>27 Jul–7 Agu</strong>10 hari kerja</div>
+          <div class="phase__body">
+            <button class="phase__button" type="button" aria-expanded="true" aria-controls="phase-2-detail">
+              <span>
+                <span class="phase__title-row"><h3>Phase 2 — Engineering Foundation</h3><span class="status-tag">Aktif</span></span>
+                <span class="phase__summary">Fondasi aplikasi, database, keamanan, quality gate, dan CI siap dimulai.</span>
+              </span>
+              <span class="phase__chevron" aria-hidden="true">⌄</span>
+            </button>
+            <div class="phase__detail" id="phase-2-detail">
+              <div>
+                <h4>Deliverable</h4>
+                <ul>
+                  <li>Next.js strict, Tailwind, shadcn/ui, Supabase, TanStack Query, Zod, test runner, Playwright, dan CI.</li>
+                  <li>Enam tabel minimum, RLS Owner/Kasir, role seed, dan produk tervalidasi.</li>
+                  <li>Mutation atomik dan idempotent untuk membuat transaksi, mengubah pembayaran, dan void.</li>
+                </ul>
+              </div>
+              <div class="exit"><h4>Exit · Gate C</h4><p>Build, lint, type-check, test dasar, schema, RLS, dan seed seluruhnya lulus.</p></div>
+            </div>
+          </div>
+        </article>
+        <article class="phase" data-status="planned">
+          <div class="phase__rail"><span class="phase__dot"></span></div>
+          <div class="phase__date"><strong>10–21 Agu</strong>10 hari kerja</div>
+          <div class="phase__body">
+            <button class="phase__button" type="button" aria-expanded="false" aria-controls="phase-3-detail">
+              <span>
+                <span class="phase__title-row"><h3>Phase 3 — Core POS</h3><span class="status-tag">Mendatang</span></span>
+                <span class="phase__summary">Mengubah flow tervalidasi menjadi transaksi production yang aman.</span>
+              </span>
+              <span class="phase__chevron" aria-hidden="true">⌄</span>
+            </button>
+            <div class="phase__detail" id="phase-3-detail">
+              <div>
+                <h4>Deliverable</h4>
+                <ul>
+                  <li>Login, katalog, quick-sale grid, cart, status pembayaran, pelanggan, submit, dan konfirmasi.</li>
+                  <li>Penanganan produk nonaktif, harga berubah, koneksi terputus, session expired, dan double-submit.</li>
+                  <li>Unit dan integration test untuk happy path serta failure path utama.</li>
+                </ul>
+              </div>
+              <div class="exit"><h4>Exit</h4><p>Seluruh jalur utama core POS lulus test dan siap digabungkan dengan fitur operasional.</p></div>
+            </div>
+          </div>
+        </article>
+        <article class="phase" data-status="planned">
+          <div class="phase__rail"><span class="phase__dot"></span></div>
+          <div class="phase__date"><strong>24 Agu–4 Sep</strong>10 hari kerja</div>
+          <div class="phase__body">
+            <button class="phase__button" type="button" aria-expanded="false" aria-controls="phase-4-detail">
+              <span>
+                <span class="phase__title-row"><h3>Phase 4 — Operasional Minimum</h3><span class="status-tag">Mendatang</span></span>
+                <span class="phase__summary">Riwayat, piutang, audit, void, dan dashboard yang dapat direkonsiliasi.</span>
+              </span>
+              <span class="phase__chevron" aria-hidden="true">⌄</span>
+            </button>
+            <div class="phase__detail" id="phase-4-detail">
+              <div>
+                <h4>Deliverable</h4>
+                <ul>
+                  <li>Riwayat, search/filter, piutang, overdue, mark paid/unpaid, Owner-only void, dan audit log.</li>
+                  <li>Dashboard empat metrik dan lima transaksi terbaru berdasarkan paid_at.</li>
+                  <li>Fixture manual untuk memverifikasi omzet, HPP, gross profit, dan piutang.</li>
+                </ul>
+              </div>
+              <div class="exit"><h4>Exit · Gate D/UAT</h4><p>Hasil dashboard cocok dengan fixture manual dan query database; flow operasional siap UAT.</p></div>
+            </div>
+          </div>
+        </article>
+        <article class="phase" data-status="planned">
+          <div class="phase__rail"><span class="phase__dot"></span></div>
+          <div class="phase__date"><strong>7–18 Sep</strong>10 hari kerja</div>
+          <div class="phase__body">
+            <button class="phase__button" type="button" aria-expanded="false" aria-controls="phase-5-detail">
+              <span>
+                <span class="phase__title-row"><h3>Phase 5 — Validation &amp; Release</h3><span class="status-tag">Mendatang</span></span>
+                <span class="phase__summary">Menguji keamanan, aksesibilitas, perangkat, recovery, dan production.</span>
+              </span>
+              <span class="phase__chevron" aria-hidden="true">⌄</span>
+            </button>
+            <div class="phase__detail" id="phase-5-detail">
+              <div>
+                <h4>Deliverable</h4>
+                <ul>
+                  <li>E2E, RLS test, responsive QA 360/768/1280/1920px, accessibility, dan simulasi 4G.</li>
+                  <li>UAT lima pengguna, backup, restore, rollback drill, deploy, dan smoke test.</li>
+                  <li>Verifikasi seluruh P0 dan acceptance criteria.</li>
+                </ul>
+              </div>
+              <div class="exit"><h4>Exit · Gate E</h4><p>Release hanya dilakukan jika seluruh P0 dan acceptance criteria lulus.</p></div>
+            </div>
+          </div>
+        </article>
+        <article class="phase" data-status="planned">
+          <div class="phase__rail"><span class="phase__dot"></span></div>
+          <div class="phase__date"><strong>21 Sep–2 Okt</strong>10 hari kerja</div>
+          <div class="phase__body">
+            <button class="phase__button" type="button" aria-expanded="false" aria-controls="phase-6-detail">
+              <span>
+                <span class="phase__title-row"><h3>Phase 6 — Monitoring Pasca-MVP</h3><span class="status-tag">Mendatang</span></span>
+                <span class="phase__summary">Mengamati penggunaan nyata sebelum menambah scope produk.</span>
+              </span>
+              <span class="phase__chevron" aria-hidden="true">⌄</span>
+            </button>
+            <div class="phase__detail" id="phase-6-detail">
+              <div>
+                <h4>Deliverable</h4>
+                <ul>
+                  <li>Pemantauan penggunaan, error, kualitas data, dan hambatan operasional selama dua minggu.</li>
+                  <li>Review backlog berdasarkan kebutuhan nyata.</li>
+                  <li>Urutan awal: pre-order, export, customer directory, lalu BOM/inventory.</li>
+                </ul>
+              </div>
+              <div class="exit"><h4>Exit</h4><p>Owner menyetujui prioritas pasca-MVP berdasarkan bukti penggunaan, bukan asumsi awal.</p></div>
+            </div>
+          </div>
+        </article>
+        <article class="phase" data-status="planned">
+          <div class="phase__rail"><span class="phase__dot"></span></div>
+          <div class="phase__date"><strong>5–16 Okt</strong>10 hari kerja</div>
+          <div class="phase__body">
+            <button class="phase__button" type="button" aria-expanded="false" aria-controls="migration-detail">
+              <span>
+                <span class="phase__title-row"><h3>Proyek Terpisah — Migrasi Historis</h3><span class="status-tag">Mendatang</span></span>
+                <span class="phase__summary">Memindahkan data lama setelah selisih jumlah transaksi dan angka HPP direkonsiliasi secara internal.</span>
+              </span>
+              <span class="phase__chevron" aria-hidden="true">⌄</span>
+            </button>
+            <div class="phase__detail" id="migration-detail">
+              <div>
+                <h4>Deliverable</h4>
+                <ul>
+                  <li>Rekonsiliasi jumlah transaksi, HPP, profit, dan sumber data final.</li>
+                  <li>Staging, mapping, dry-run, laporan validasi total, dan approval hasil.</li>
+                  <li>Import idempotent yang aman dijalankan ulang tanpa duplikasi.</li>
+                </ul>
+              </div>
+              <div class="exit"><h4>Exit terpisah</h4><p>Total hasil import cocok dengan dataset yang telah direkonsiliasi dan disetujui Owner.</p></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+    <aside class="assumptions" aria-labelledby="assumption-title">
+      <div>
+        <p class="eyebrow">Cara membaca estimasi</p>
+        <h2 id="assumption-title">Timeline ini adalah baseline, bukan janji tanggal yang kaku.</h2>
+        <p>Perubahan scope atau temuan keamanan dapat menggeser tanggal. Gate tetap menjadi pengendali kapan fase berikutnya boleh dimulai.</p>
+      </div>
+      <ul>
+        <li>Gate B ditutup 23 Juli 2026 dan jadwal Phase 2 diasumsikan mulai Senin, 27 Juli 2026.</li>
+        <li>Estimasi mengasumsikan satu jalur pengerjaan utama dengan review Owner tersedia pada akhir setiap gate.</li>
+        <li>Bug kritis, perubahan requirement, atau UAT yang gagal harus diselesaikan sebelum gate ditutup.</li>
+        <li>Migrasi historis sengaja dipisahkan agar release awal tidak bergantung pada data lama yang belum konsisten.</li>
+      </ul>
+    </aside>
+  </main>
+  <footer>
+    Parissa POS · Baseline timeline 23 Juli 2026 · Sumber: PRD v3.1, Project Restart Plan, dan hasil uji manual Owner.
+  </footer>
+  <script>
+    const filterButtons = [...document.querySelectorAll(".filter-button")];
+    const phases = [...document.querySelectorAll(".phase")];
+    const phaseButtons = [...document.querySelectorAll(".phase__button")];
+    const detailToggle = document.querySelector(".detail-toggle");
+    function setPhaseExpanded(button, expanded) {
+      button.setAttribute("aria-expanded", String(expanded));
+    }
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const selected = button.dataset.filter;
+        filterButtons.forEach((item) => {
+          item.setAttribute("aria-pressed", String(item === button));
+        });
+        phases.forEach((phase) => {
+          phase.hidden = selected !== "all" && phase.dataset.status !== selected;
+        });
+      });
+    });
+    phaseButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const expanded = button.getAttribute("aria-expanded") === "true";
+        setPhaseExpanded(button, !expanded);
+      });
+    });
+    detailToggle.addEventListener("click", () => {
+      const shouldExpand = detailToggle.getAttribute("aria-pressed") !== "true";
+      phaseButtons.forEach((button) => setPhaseExpanded(button, shouldExpand));
+      detailToggle.setAttribute("aria-pressed", String(shouldExpand));
+      detailToggle.textContent = shouldExpand ? "Sembunyikan semua detail" : "Tampilkan semua detail";
+    });
+  </script>
+</body>
+</html>

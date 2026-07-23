@@ -1,6 +1,6 @@
 <!--
 @file README.md
-@version 0.3.0-alpha.6
+@version 0.3.0
 @description Baseline repository Parissa POS berdasarkan PRD MVP v3.1.
 -->
 
@@ -8,7 +8,7 @@
 
 Parissa POS adalah aplikasi web responsif untuk membantu bisnis dessert dan minuman Parissa di Bandung mencatat penjualan dalam kurang dari 30 detik dan menghasilkan angka omzet, HPP, gross profit, serta piutang yang dapat dipercaya.
 
-> **Status:** Gate A disetujui. Flow prototype UX `0.3.0-alpha.6` sudah diuji manual Owner dan dinyatakan aman; perbaikan visual, padding mobile kondisional, dan input quantity integer positif telah diterapkan. Coding foundation belum boleh dimulai sampai Gate B disetujui.
+> **Status:** Gate A dan Gate B disetujui. Prototype UX `0.3.0` diterima Owner pada 23 Juli 2026 dengan median transaksi 7 detik. Phase 2 — Engineering Foundation siap dimulai.
 
 ## Sasaran MVP
 
@@ -67,7 +67,7 @@ Data historis belum dimasukkan karena ditemukan selisih jumlah transaksi dan ang
 - Unit/integration test dan Playwright E2E.
 - Vercel untuk preview dan production.
 
-Stack ini baru boleh di-scaffold setelah prototype UX dan Gate B disetujui.
+Stack ini telah disetujui untuk mulai di-scaffold pada Phase 2 setelah Gate B ditutup.
 
 ## Prototype Phase 1
 
@@ -87,7 +87,7 @@ Keputusan visual sementara: tipografi ringan–menengah (400/500/600), surface n
 | Fase | Outcome | Gate |
 |---|---|---|
 | 0 — Product Definition | PRD v3.1, formula, scope, strategi data, dan asset fallback disetujui | Gate A — selesai |
-| 1 — UX Prototype | Flow POS mobile/desktop tervalidasi <30 detik | Gate B |
+| 1 — UX Prototype | Flow POS mobile/desktop tervalidasi <30 detik | Gate B — selesai |
 | 2 — Engineering Foundation | App kosong, schema, RLS, seed, CI, quality gate | Gate C |
 | 3 — Core POS | Produk, cart, transaksi, dan konfirmasi | Gate D/UAT |
 | 4 — History & Dashboard | Piutang, void, audit, dan metrik terverifikasi | Gate D/UAT |
@@ -105,6 +105,7 @@ Keputusan visual sementara: tipografi ringan–menengah (400/500/600), surface n
 - [POS Flow](Document/MVP/05-POS-Flow.md)
 - [Design Brief](Document/MVP/06-Design-Brief.md)
 - [Acceptance Criteria](Document/MVP/07-Acceptance-Criteria.md)
+- [Timeline Development Interaktif](Document/Parissa-Development-Timeline.html)
 - [Instruksi Agent](AGENTS.md)
 - [Riwayat Perubahan](CHANGELOG.md)
 
@@ -116,6 +117,7 @@ Keputusan visual sementara: tipografi ringan–menengah (400/500/600), surface n
 ├── CHANGELOG.md
 ├── Document/
 │   ├── MVP/
+│   ├── Parissa-Development-Timeline.html
 │   ├── PRD-Parissa-MVP.md
 │   └── Project-Restart-Plan.md
 ├── README.md
@@ -134,11 +136,11 @@ Keputusan visual sementara: tipografi ringan–menengah (400/500/600), surface n
 
 ## Langkah Berikutnya
 
-Review `prototype/phase-1/pos-prototype.html` yang sudah mengadopsi mockup eksternal terbaru pada 360px dan 1280px. Pastikan tampilan final tetap menyelesaikan transaksi kurang dari 30 detik sebelum menyetujui Gate B.
+Commit dan push checkpoint Gate B secara terpisah, lalu mulai Phase 2 dengan scaffold engineering foundation dan quality gate minimum.
 
 ## Versi
 
-- Repository/software: `0.3.0-alpha.6`.
+- Repository/software: `0.3.0`.
 - Baseline PRD: MVP `v3.1`.
 
 Lihat `CHANGELOG.md` untuk perubahan repository.

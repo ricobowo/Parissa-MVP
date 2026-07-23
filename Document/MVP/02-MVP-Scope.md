@@ -1,6 +1,6 @@
 <!--
 @file 02-MVP-Scope.md
-@version 1.1.0
+@version 1.1.1
 @description Batas scope P0, P1, dan fitur yang ditunda dari MVP Parissa POS.
 -->
 
@@ -8,7 +8,7 @@
 
 **Status:** Gate A disetujui dan P0 dibekukan pada 22 Juli 2026.
 
-**Fase aktif:** Phase 1 — UX Prototype.
+**Fase aktif:** Phase 2 — Engineering Foundation; Gate B disetujui 23 Juli 2026.
 
 ## P0 — Wajib untuk Release
 

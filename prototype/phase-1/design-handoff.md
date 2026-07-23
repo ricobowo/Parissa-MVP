@@ -1,6 +1,6 @@
 <!--
 @file design-handoff.md
-@version 0.2.2
+@version 0.2.3
 @description Brief handoff untuk penyempurnaan visual Parissa POS oleh AI Design atau UI designer lain.
 -->
 
@@ -8,11 +8,11 @@
 
 **Tanggal:** 22 Juli 2026
 
-**Repository:** Parissa-MVP `v0.3.0-alpha.6`
+**Repository:** Parissa-MVP `v0.3.0`
 
-**Fase:** Phase 1 — UX Prototype
+**Fase:** Phase 1 — selesai; baseline untuk Phase 2
 
-**Status:** Flow utama telah diuji manual oleh Owner dan dinyatakan aman; perbaikan visual, padding mobile kondisional, dan input quantity integer positif sudah diterapkan dan menunggu review akhir sebelum Gate B.
+**Status:** Flow dan visual final disetujui Owner sebagai Gate B pada 23 Juli 2026. Dokumen ini menjadi acuan implementasi, bukan lagi brief eksplorasi.
 
 ## 1. Tujuan Handoff
 
@@ -259,7 +259,7 @@ Screenshot atau HTML boleh menyertai hasil, tetapi bukan pengganti source design
 - [ ] Font dan asset memiliki sumber/lisensi yang dapat dipakai.
 - [ ] Semua keputusan yang berbeda dari brief diberi catatan dan alasan.
 
-Gate B baru dapat disetujui setelah output final direview terhadap checklist ini dan transaksi umum tetap selesai kurang dari 30 detik.
+Gate B disetujui pada 23 Juli 2026 setelah output final direview dan lima transaksi umum selesai dengan median 7 detik.
 
 ## 14. Prompt Ringkas untuk AI Design
 

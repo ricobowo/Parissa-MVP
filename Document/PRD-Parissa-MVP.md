@@ -1,6 +1,6 @@
 <!--
 @file PRD-Parissa-MVP.md
-@version 1.1.0
+@version 1.1.1
 @description PRD ringkas untuk pembangunan ulang MVP Parissa POS.
 -->
 
@@ -9,10 +9,10 @@
 | Field | Value |
 |-------|-------|
 | **PRD Version** | v3.1 |
-| **Last Updated** | 22 Juli 2026 |
+| **Last Updated** | 23 Juli 2026 |
 | **Author** | Rico (Owner) |
 | **Status** | Approved — Gate A (22 Juli 2026) |
-| **Fase Aktif** | Phase 1 — UX Prototype |
+| **Fase Aktif** | Phase 2 — Engineering Foundation |
 | **Repository Lama** | https://github.com/ricobowo/Parissa.git |
 | **Data Source** | Airtable Base “Parissa” + seed data repository lama |
 | **Dokumen Sebelumnya** | `Document/PRD-Parissa.md` v2.4 |

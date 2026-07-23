@@ -1,6 +1,6 @@
 <!--
 @file 04-Data-Model.md
-@version 1.1.0
+@version 1.1.1
 @description Model data minimum dan relasi utama MVP Parissa POS.
 -->
 
@@ -8,7 +8,7 @@
 
 **Status:** Gate A disetujui 22 Juli 2026.
 
-**Fase aktif:** Phase 1 — UX Prototype; schema belum diimplementasikan sebelum Gate B.
+**Fase aktif:** Phase 2 — Engineering Foundation; schema siap dirancang untuk Gate C.
 
 ## ERD Ringkas
 

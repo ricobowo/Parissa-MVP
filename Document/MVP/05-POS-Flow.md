@@ -1,6 +1,6 @@
 <!--
 @file 05-POS-Flow.md
-@version 1.2.1
+@version 1.2.3
 @description Alur pengguna dan state utama POS MVP Parissa.
 -->
 
@@ -8,7 +8,7 @@
 
 **Status:** Gate A disetujui 22 Juli 2026.
 
-**Fase aktif:** Phase 1 — UX Prototype.
+**Fase aktif:** Phase 2 — Engineering Foundation; flow dikunci oleh Gate B.
 
 ## Happy Path
 
@@ -55,6 +55,17 @@ Target desktop maksimal tiga aksi utama jika nama pelanggan tidak diperlukan. Pa
 Status pembayaran selalu merupakan keputusan eksplisit Kasir. Sistem tidak boleh menganggap transaksi lunas hanya karena halaman baru dibuka atau cart baru dibuat.
 
 Input quantity hanya menerima integer positif mulai dari 1. Nilai nol, minus, desimal, huruf, dan simbol ditolak tanpa mengubah nilai cart terakhir yang valid.
+
+## Validasi Waktu Phase 1
+
+Pengujian manual Owner pada 23 Juli 2026 menghasilkan durasi 4, 8, 9, 7, dan 3 detik.
+
+- Median: 7 detik.
+- Rata-rata: 6,2 detik.
+- Rentang: 3–9 detik.
+- Hasil: lima dari lima percobaan berada di bawah target 30 detik.
+
+Kriteria waktu Gate B dinyatakan lulus. Owner menyetujui Gate B pada 23 Juli 2026 dan Phase 2 boleh dimulai.
 
 ## Failure Scenarios
 

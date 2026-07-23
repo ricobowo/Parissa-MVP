@@ -1,6 +1,6 @@
 <!--
 @file AGENTS.md
-@version 0.3.0-alpha.6
+@version 0.3.0
 @description Instruksi kerja wajib untuk agent pada repository Parissa POS MVP.
 -->
 
@@ -12,9 +12,9 @@ Dokumen ini berlaku untuk seluruh repository. Instruksi yang lebih spesifik di s
 
 - Baseline produk: PRD MVP v3.1, disetujui 22 Juli 2026.
 - Versi repository: lihat `VERSION`.
-- Fase aktif: Phase 1 — UX Prototype.
-- Status: Gate A disetujui; flow prototype sudah diuji manual Owner dan dinyatakan aman. Prototype telah menerima perbaikan visual, padding mobile kondisional, dan input quantity integer positif; Gate B menunggu review akhir dan validasi waktu transaksi.
-- Larangan saat ini: jangan membuat scaffold aplikasi, kode production, dependency, migration, seed, atau konfigurasi deployment sebelum Gate B disetujui secara eksplisit oleh Owner.
+- Fase aktif: Phase 2 — Engineering Foundation.
+- Status: Gate A dan Gate B disetujui. Flow serta visual prototype diterima Owner pada 23 Juli 2026; median transaksi 7 detik dari lima percobaan.
+- Batas fase: scaffold dan kode foundation Phase 2 boleh dimulai. Jangan mengimplementasikan fitur di luar scope P0 atau melompati Gate C.
 
 ## Source of Truth
 
@@ -48,9 +48,12 @@ Keputusan final:
 
 Brand asset boleh menyusul dengan placeholder jujur, tetapi ketersediaannya harus dicatat sebelum visual final. Gate A tidak perlu dibuka kembali kecuali Owner mengubah keputusan produk di atas.
 
+### Gate B — disetujui 23 Juli 2026
+
+Flow produk → cart → pembayaran → pelanggan → submit → konfirmasi, perilaku responsif, state error/retry, dan arah visual prototype disetujui. Lima pengujian manual menghasilkan median 7 detik dan seluruhnya di bawah 30 detik.
+
 ### Gate berikutnya
 
-- Gate B: flow dan prototype UX disetujui sebelum implementasi UI.
 - Gate C: schema, RLS, seed, dan fixture disetujui sebelum migration.
 - Gate D: core POS lulus UAT.
 - Gate E: seluruh acceptance criteria dan quality gate lulus sebelum production.

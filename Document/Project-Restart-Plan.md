@@ -1,6 +1,6 @@
 <!--
 @file Project-Restart-Plan.md
-@version 1.5.0
+@version 1.5.1
 @description Rencana pembangunan ulang Parissa POS berdasarkan PRD MVP v3.1.
 -->
 
@@ -10,7 +10,7 @@
 
 **Tanggal:** 22 Juli 2026
 
-**Status:** Gate A disetujui — Phase 1 aktif
+**Status:** Gate A dan Gate B disetujui — Phase 2 aktif
 
 ## 1. Strategi Restart
 
@@ -65,19 +65,19 @@ Prinsip utama:
 
 **Durasi:** 3–4 hari
 
-**Progress 23 Juli 2026:** Flow prototype telah diuji manual Owner dan dinyatakan aman. Mockup eksternal terbaru sudah diadaptasi ke prototype mandiri; Gate B menunggu review visual final dan validasi transaksi <30 detik.
+**Progress 23 Juli 2026:** Flow dan visual prototype disetujui Owner sebagai Gate B. Lima pengujian transaksi menghasilkan median 7 detik dan seluruhnya di bawah target 30 detik.
 
 - [x] Buat prototype POS mobile 360px dengan guided checkout.
 - [x] Uji manual flow produk → cart → status bayar → submit; Owner menyatakan flow aman.
 - [x] Buat varian desktop Speed First tanpa `max-width` sempit.
 - [x] Implementasikan validasi prototype nama pelanggan opsional/wajib.
-- [ ] Uji skenario lunas, piutang, server error, dan retry.
+- [x] Uji skenario lunas, piutang, server error, dan retry.
 - [x] Kunci design tokens visual minimum: font/fallback, bobot 400/500/600, surface netral, satu brand accent, dan semantic color terbatas.
 - [x] Siapkan handoff terstruktur untuk AI Design/UI designer eksternal.
 - [x] Adaptasi mockup eksternal 23 Juli 2026 tanpa mengubah flow atau business rule.
-- [ ] Kunci component inventory minimum setelah hasil uji prototype disetujui.
+- [x] Kunci component inventory minimum setelah hasil uji prototype disetujui.
 
-**Exit:** Rico menyetujui flow; transaksi simulasi selesai <30 detik.
+**Exit:** Tercapai pada 23 Juli 2026; Rico menyetujui flow dan visual, sedangkan transaksi simulasi memiliki median 7 detik.
 
 ### Phase 2 — Engineering Foundation
 

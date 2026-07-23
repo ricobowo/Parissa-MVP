@@ -1,6 +1,6 @@
 <!--
 @file CHANGELOG.md
-@version 0.3.0-alpha.6
+@version 0.3.0
 @description Riwayat perubahan repository Parissa POS MVP.
 -->
 
@@ -12,7 +12,41 @@ Semua perubahan penting repository dicatat di dokumen ini. Versi repository meng
 
 ### Planned
 
-- Review visual akhir prototype hasil perbaikan dan validasi waktu transaksi sebelum Gate B.
+- Mulai Phase 2 — Engineering Foundation setelah checkpoint Gate B dipublikasikan.
+
+## [0.3.0] — 2026-07-23
+
+### Changed
+
+- Menetapkan prototype UX Phase 1 sebagai baseline implementasi yang disetujui.
+- Mengaktifkan Phase 2 — Engineering Foundation.
+
+### Validation
+
+- Flow lunas, piutang, server error, retry, input quantity, dan perilaku responsif telah diverifikasi.
+- Lima percobaan transaksi menghasilkan median 7 detik dan seluruhnya berada di bawah target 30 detik.
+
+### Status
+
+- Gate B disetujui Owner pada 23 Juli 2026.
+- Scaffold dan kode foundation Phase 2 boleh dimulai; Gate C menjadi approval berikutnya.
+
+## [0.3.0-alpha.7] — 2026-07-23
+
+### Added
+
+- Timeline development interaktif dari Gate A sampai monitoring pasca-MVP dan proyek migrasi historis.
+- Filter status fase, detail deliverable/exit gate, serta visual hasil pengukuran transaksi pada timeline.
+
+### Validation
+
+- Lima percobaan transaksi manual menghasilkan 4, 8, 9, 7, dan 3 detik.
+- Median 7 detik, rata-rata 6,2 detik, rentang 3–9 detik, dan seluruh percobaan berada di bawah target 30 detik.
+
+### Status
+
+- Kriteria waktu Gate B dinyatakan lulus.
+- Gate B masih terbuka pada versi ini dan kemudian disetujui pada `0.3.0`.
 
 ## [0.3.0-alpha.6] — 2026-07-23
 
