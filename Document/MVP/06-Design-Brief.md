@@ -1,6 +1,6 @@
 <!--
 @file 06-Design-Brief.md
-@version 1.2.0
+@version 1.2.1
 @description Arahan desain dan batas visual MVP Parissa POS.
 -->
 
@@ -46,6 +46,7 @@ Membuat POS yang terasa cepat, tenang, dan dipercaya—bukan dashboard SaaS gene
 - Desktop baseline 1280px dan verify 1920px.
 - Tidak ada content cap 1.040px untuk dashboard utama.
 - Desktop POS: product area fleksibel + cart 360–420px.
+- Mobile hanya menambah ruang bawah katalog ketika floating cart summary sedang tampil.
 - Touch target minimum 44×44px.
 - Gunakan spacing scale konsisten 4/8/12/16/24/32.
 

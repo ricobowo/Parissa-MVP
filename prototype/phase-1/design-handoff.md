@@ -1,6 +1,6 @@
 <!--
 @file design-handoff.md
-@version 0.2.0
+@version 0.2.2
 @description Brief handoff untuk penyempurnaan visual Parissa POS oleh AI Design atau UI designer lain.
 -->
 
@@ -8,11 +8,11 @@
 
 **Tanggal:** 22 Juli 2026
 
-**Repository:** Parissa-MVP `v0.3.0-alpha.4`
+**Repository:** Parissa-MVP `v0.3.0-alpha.6`
 
 **Fase:** Phase 1 — UX Prototype
 
-**Status:** Flow utama telah diuji manual oleh Owner dan dinyatakan aman; mockup eksternal 23 Juli 2026 sudah diadaptasi dan menunggu review visual final sebelum Gate B.
+**Status:** Flow utama telah diuji manual oleh Owner dan dinyatakan aman; perbaikan visual, padding mobile kondisional, dan input quantity integer positif sudah diterapkan dan menunggu review akhir sebelum Gate B.
 
 ## 1. Tujuan Handoff
 
@@ -104,6 +104,7 @@ Aturan keselamatan:
 - Ringkasan cart muncul di bagian bawah setelah ada item.
 - Checkout dibuka sebagai bottom sheet.
 - Tidak ada horizontal scroll pada 360px.
+- Tidak ada vertical scroll tambahan ketika isi katalog masih muat dan floating cart belum tampil.
 - Seluruh interactive target minimum 44×44px.
 
 ## 7. State Wajib untuk Didesain
@@ -133,7 +134,7 @@ Desain dan beri nama variant/state untuk:
 - Category chip.
 - Product card dengan placeholder foto dan dengan foto final.
 - Add-product control.
-- Cart item dan quantity stepper.
+- Cart item dengan quantity stepper dan input integer positif langsung.
 - Mobile cart summary bar.
 - Mobile checkout bottom sheet.
 - Payment status selector: default, paid, unpaid, focus, disabled.
@@ -249,6 +250,8 @@ Screenshot atau HTML boleh menyertai hasil, tetapi bukan pengganti source design
 - [ ] Search dan empat kategori konsisten pada seluruh breakpoint.
 - [ ] Product card ringkas dan tidak mengulang informasi.
 - [ ] Mobile 360px tidak memiliki horizontal scroll.
+- [ ] Mobile tidak menyisakan padding bawah yang memicu vertical scroll ketika floating cart belum tampil.
+- [ ] Quantity stepper dan input langsung hanya menerima integer positif mulai dari 1.
 - [ ] Touch target minimum 44×44px.
 - [ ] Teks dan control memenuhi WCAG AA.
 - [ ] Hierarki tidak bergantung pada semua teks bold atau banyak warna.

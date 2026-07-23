@@ -1,6 +1,6 @@
 <!--
 @file CHANGELOG.md
-@version 0.3.0-alpha.4
+@version 0.3.0-alpha.6
 @description Riwayat perubahan repository Parissa POS MVP.
 -->
 
@@ -12,7 +12,47 @@ Semua perubahan penting repository dicatat di dokumen ini. Versi repository meng
 
 ### Planned
 
-- Review visual final prototype hasil adaptasi dan validasi waktu transaksi sebelum Gate B.
+- Review visual akhir prototype hasil perbaikan dan validasi waktu transaksi sebelum Gate B.
+
+## [0.3.0-alpha.6] — 2026-07-23
+
+### Changed
+
+- Membuat padding bawah katalog mobile kondisional agar ruang ekstra hanya tersedia saat floating cart bar tampil.
+- Mengganti angka quantity statis dengan input langsung yang tetap didampingi tombol tambah dan kurang.
+- Menolak quantity nol, minus, desimal, huruf, simbol, dan nilai di luar integer aman tanpa mengubah nilai cart terakhir yang valid.
+
+### Validation
+
+- Kategori mobile dengan satu produk terukur tanpa vertical scroll pada viewport 360×800px; padding katalog kembali menjadi 24px saat cart kosong.
+- Input quantity menerima `3` dan memperbarui total menjadi Rp60.000, sedangkan `0`, `-2`, `1.5`, serta `abc` ditolak dan kembali ke nilai valid terakhir.
+- Input dan tombol quantity terukur minimum 44px; flow lunas, piutang, server error, dan retry tetap lulus tanpa console error.
+
+### Status
+
+- Flow, business rule, dependency, dan kode aplikasi production tidak berubah.
+- Gate B tetap menunggu review visual akhir dan validasi transaksi umum kurang dari 30 detik.
+
+## [0.3.0-alpha.5] — 2026-07-23
+
+### Changed
+
+- Memadatkan kartu produk dan menambah kolom katalog pada desktop lebar tanpa mengubah flow transaksi.
+- Memperkuat kontras placeholder, search, dan teks sekunder serta menyatukan focus ring dengan keluarga warna brand.
+- Memperbesar target sentuh kategori dan kontrol kuantitas, meningkatkan keterbacaan navigasi, serta menyederhanakan copy empty cart.
+- Mengurangi kombinasi border dan shadow pada kartu agar tampilan lebih tenang dan minimal.
+
+### Validation
+
+- Playwright lulus pada 360px, 768px, 1280px, dan 1920px tanpa horizontal page scroll atau console error.
+- Target sentuh kategori dan kontrol kuantitas terukur minimum 44×44px.
+- Flow lunas lulus pada seluruh viewport; validasi piutang lulus pada mobile; server error dan retry lulus pada desktop.
+- Kontras teks sekunder, placeholder produk, search, CTA, dan navigasi aktif memenuhi WCAG AA.
+
+### Status
+
+- Tidak ada perubahan flow, business rule, dependency, atau kode aplikasi production.
+- Gate B tetap menunggu review visual akhir dan validasi transaksi umum kurang dari 30 detik.
 
 ## [0.3.0-alpha.4] — 2026-07-23
 

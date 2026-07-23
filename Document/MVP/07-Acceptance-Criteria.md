@@ -1,6 +1,6 @@
 <!--
 @file 07-Acceptance-Criteria.md
-@version 1.2.0
+@version 1.2.1
 @description Acceptance criteria dan release gate MVP Parissa POS.
 -->
 
@@ -29,7 +29,8 @@
 - [ ] Cart tidak dapat disubmit dalam keadaan kosong.
 - [ ] Checkout detail tidak ditampilkan saat cart kosong.
 - [ ] Status pembayaran tidak memiliki default dan wajib dipilih eksplisit.
-- [ ] Quantity hanya menerima integer positif.
+- [ ] Quantity stepper dan input langsung hanya menerima integer positif mulai dari 1.
+- [ ] Mobile tidak memiliki vertical scroll tambahan ketika isi katalog masih muat dan floating cart belum tampil.
 - [ ] Nama pelanggan wajib saat status `Belum`.
 - [ ] Total client dan server sesuai fixture.
 - [ ] Satu submit menghasilkan satu transaksi dan semua item.

@@ -1,6 +1,6 @@
 <!--
 @file README.md
-@version 0.3.0-alpha.4
+@version 0.3.0-alpha.6
 @description Baseline repository Parissa POS berdasarkan PRD MVP v3.1.
 -->
 
@@ -8,7 +8,7 @@
 
 Parissa POS adalah aplikasi web responsif untuk membantu bisnis dessert dan minuman Parissa di Bandung mencatat penjualan dalam kurang dari 30 detik dan menghasilkan angka omzet, HPP, gross profit, serta piutang yang dapat dipercaya.
 
-> **Status:** Gate A disetujui. Flow prototype UX `0.3.0-alpha.4` sudah diuji manual Owner dan dinyatakan aman; mockup eksternal terbaru telah diadaptasi dan menunggu review visual final. Coding foundation belum boleh dimulai sampai Gate B disetujui.
+> **Status:** Gate A disetujui. Flow prototype UX `0.3.0-alpha.6` sudah diuji manual Owner dan dinyatakan aman; perbaikan visual, padding mobile kondisional, dan input quantity integer positif telah diterapkan. Coding foundation belum boleh dimulai sampai Gate B disetujui.
 
 ## Sasaran MVP
 
@@ -138,7 +138,7 @@ Review `prototype/phase-1/pos-prototype.html` yang sudah mengadopsi mockup ekste
 
 ## Versi
 
-- Repository/software: `0.3.0-alpha.4`.
+- Repository/software: `0.3.0-alpha.6`.
 - Baseline PRD: MVP `v3.1`.
 
 Lihat `CHANGELOG.md` untuk perubahan repository.

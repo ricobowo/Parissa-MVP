@@ -1,6 +1,6 @@
 <!--
 @file 05-POS-Flow.md
-@version 1.2.0
+@version 1.2.1
 @description Alur pengguna dan state utama POS MVP Parissa.
 -->
 
@@ -35,7 +35,7 @@ Transaksi `Sudah` mengisi `paid_at` pada saat submit berhasil. Transaksi `Belum`
 
 1. **Loading:** skeleton grid dan cart disabled.
 2. **Ready/Empty cart:** produk aktif terlihat; checkout, status pembayaran, customer field, total, dan submit belum ditampilkan.
-3. **Cart active:** quantity controls, total, serta pilihan `Sudah`/`Belum` tersedia tanpa default.
+3. **Cart active:** quantity stepper dan input langsung, total, serta pilihan `Sudah`/`Belum` tersedia tanpa default.
 4. **Validation error:** field bermasalah diberi pesan Bahasa Indonesia.
 5. **Submitting:** CTA disabled dan spinner; idempotency key aktif.
 6. **Success:** confirmation receipt ringkas.
@@ -53,6 +53,8 @@ Transaksi umum satu produk:
 Target desktop maksimal tiga aksi utama jika nama pelanggan tidak diperlukan. Pada mobile ada satu aksi tambahan untuk membuka cart bottom sheet sebelum memilih pembayaran.
 
 Status pembayaran selalu merupakan keputusan eksplisit Kasir. Sistem tidak boleh menganggap transaksi lunas hanya karena halaman baru dibuka atau cart baru dibuat.
+
+Input quantity hanya menerima integer positif mulai dari 1. Nilai nol, minus, desimal, huruf, dan simbol ditolak tanpa mengubah nilai cart terakhir yang valid.
 
 ## Failure Scenarios
 

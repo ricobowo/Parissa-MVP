@@ -1,6 +1,6 @@
 <!--
 @file README.md
-@version 0.4.0
+@version 0.4.2
 @description Cara meninjau prototype UX Parissa POS Phase 1.
 -->
 
@@ -30,7 +30,7 @@ Buka file HTML langsung dari Finder atau browser. Prototype tidak membutuhkan se
 4. Bandingkan pengalaman pada lebar 360px dan 1280px.
 5. Pastikan status pembayaran tidak terpilih otomatis dan checkout tersembunyi saat cart kosong.
 
-Flow utama sudah diuji manual oleh Owner dan dinyatakan aman pada 22 Juli 2026. Gate B tetap terbuka sampai visual final hasil handoff direview dan target waktu transaksi tervalidasi.
+Flow utama sudah diuji manual oleh Owner dan dinyatakan aman pada 22 Juli 2026. Perbaikan kontras, densitas, target sentuh, navigasi, empty state, padding mobile kondisional, dan input quantity integer positif diterapkan pada 23 Juli 2026. Gate B tetap terbuka sampai visual akhir direview dan target waktu transaksi tervalidasi.
 
 Mockup eksternal terbaru telah diadaptasi ke `pos-prototype.html` pada 23 Juli 2026. Prototype utama tetap mandiri dan tidak membutuhkan runtime tool desain.
 

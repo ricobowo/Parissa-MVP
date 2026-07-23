@@ -1,6 +1,6 @@
 <!--
 @file AGENTS.md
-@version 0.3.0-alpha.4
+@version 0.3.0-alpha.6
 @description Instruksi kerja wajib untuk agent pada repository Parissa POS MVP.
 -->
 
@@ -13,7 +13,7 @@ Dokumen ini berlaku untuk seluruh repository. Instruksi yang lebih spesifik di s
 - Baseline produk: PRD MVP v3.1, disetujui 22 Juli 2026.
 - Versi repository: lihat `VERSION`.
 - Fase aktif: Phase 1 — UX Prototype.
-- Status: Gate A disetujui; flow prototype sudah diuji manual Owner dan dinyatakan aman. Mockup eksternal 23 Juli 2026 sudah diadaptasi ke prototype mandiri; Gate B menunggu review visual final dan validasi waktu transaksi.
+- Status: Gate A disetujui; flow prototype sudah diuji manual Owner dan dinyatakan aman. Prototype telah menerima perbaikan visual, padding mobile kondisional, dan input quantity integer positif; Gate B menunggu review akhir dan validasi waktu transaksi.
 - Larangan saat ini: jangan membuat scaffold aplikasi, kode production, dependency, migration, seed, atau konfigurasi deployment sebelum Gate B disetujui secara eksplisit oleh Owner.
 
 ## Source of Truth
@@ -105,6 +105,8 @@ Fitur baru hanya boleh masuk P0 jika transaksi utama tidak dapat selesai tanpany
 - Font UI memakai `Circular Std` bila asset berlisensi tersedia, dengan fallback `Avenir Next`/`Segoe UI`; bobot dibatasi pada 400/500/600.
 - Surface netral mendominasi; `#E85C6D` menjadi aksen nonteks dan shade satu keluarga `#BD4052` menjadi action/pilihan aktif yang memenuhi kontras; warna lain hanya untuk status semantik.
 - Foto yang belum tersedia memakai thumbnail netral kecil, tanpa warna rasa/kategori atau stock image.
+- Mobile hanya menyediakan ruang bawah ekstra ketika floating cart summary tampil; jangan menyisakan gap yang memicu scroll tanpa kebutuhan.
+- Quantity dapat diubah melalui stepper atau input langsung, tetapi hanya integer positif mulai dari 1 yang diterima.
 - Checkout disembunyikan saat cart kosong.
 - Status pembayaran tidak memiliki default dan wajib dipilih eksplisit sebelum submit.
 
