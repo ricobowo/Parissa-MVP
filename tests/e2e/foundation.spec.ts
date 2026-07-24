@@ -6,6 +6,10 @@
 
 import { expect, test } from "@playwright/test";
 
+// Smoke test ini menguji halaman status foundation Phase 2 (bukan flow POS
+// Phase 3), sengaja tetap dipertahankan sebagai sinyal cepat bahwa build
+// dasar, badge/alert Gate, dan layout responsif tidak rusak sebelum
+// Playwright suite Phase 3 yang lebih lengkap ditambahkan.
 test("menampilkan status Gate C tanpa horizontal overflow", async ({
   page,
 }) => {
@@ -14,6 +18,9 @@ test("menampilkan status Gate C tanpa horizontal overflow", async ({
   await expect(
     page.getByRole("heading", { name: "Fondasi teknis siap digunakan." }),
   ).toBeVisible();
+  // Teks "Gate C disetujui" sengaja muncul dua kali di halaman (Badge
+  // ringkas di header dan AlertTitle pada detail status); count 2 memverifikasi
+  // keduanya tetap konsisten, bukan duplikasi yang tidak disengaja.
   await expect(page.getByText("Gate C disetujui", { exact: true })).toHaveCount(
     2,
   );

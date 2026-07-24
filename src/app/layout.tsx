@@ -21,8 +21,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    // lang="id" wajib karena seluruh UI berbahasa Indonesia (AGENTS.md); memengaruhi
+    // perilaku screen reader dan bukan sekadar metadata.
     <html lang="id">
       <body>
+        {/* AppProviders dipasang sekali di root agar seluruh route berbagi satu
+            QueryClient/context TanStack Query, bukan membuat provider baru per halaman. */}
         <AppProviders>{children}</AppProviders>
       </body>
     </html>

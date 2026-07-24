@@ -5,6 +5,9 @@
  */
 import { cn } from "@/lib/utils";
 
+// Primitive loading state ini yang memenuhi syarat "setiap halaman data wajib
+// memiliki loading state berbeda" (AGENTS.md) dan state skeleton grid pada
+// `05-POS-Flow.md`; bukan sekadar dekorasi animasi.
 function Skeleton({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div

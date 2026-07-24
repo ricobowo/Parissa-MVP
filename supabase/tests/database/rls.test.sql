@@ -6,6 +6,10 @@ begin;
 
 create extension if not exists pgtap with schema extensions;
 
+-- Lima kasus di bawah menutupi empat identitas yang membutuhkan perilaku RLS
+-- berbeda sesuai acceptance criteria: anonymous dan user inactive tidak
+-- boleh mengakses aplikasi sama sekali, Kasir hanya boleh baca produk aktif,
+-- dan hanya Owner yang boleh menulis produk.
 select plan(5);
 
 insert into auth.users (
@@ -75,6 +79,9 @@ values
     false
   );
 
+-- Anon tidak punya grant select sama sekali (revoke all + tidak diberi
+-- ulang di migration), jadi harusnya gagal di level privilege (42501)
+-- sebelum RLS policy manapun sempat dievaluasi.
 set local role anon;
 select throws_ok(
   'select * from public.products',
@@ -91,6 +98,9 @@ select set_config(
 );
 select set_config('request.jwt.claim.role', 'authenticated', true);
 set local role authenticated;
+-- Kasir aktif harus tetap bisa membaca katalog produk (dibutuhkan POS grid),
+-- tapi grant insert/update yang luas ke authenticated tidak berarti Kasir
+-- boleh menulis: policy products_insert_owner yang menegakkan batasannya.
 select is(
   (select count(*) from public.products),
   6::bigint,
@@ -111,6 +121,9 @@ select set_config(
   true
 );
 set local role authenticated;
+-- Kontras langsung dengan kasus Kasir di atas: identity yang sama (grant
+-- tabel yang sama), hanya role_id yang berbeda, membuktikan pembatasan
+-- benar-benar datang dari RLS berbasis role, bukan dari grant SQL.
 select lives_ok(
   $$insert into public.products (name, category, selling_price, standard_cost)
     values ('Produk Owner', 'Dessert', 10000, 5000)$$,
@@ -124,6 +137,10 @@ select set_config(
   true
 );
 set local role authenticated;
+-- User dengan is_active = false harus terlihat "buta" terhadap seluruh data
+-- meski sesi authenticated-nya sah; ini menegakkan guard inactive-user yang
+-- juga jadi acceptance criterion login ("user inactive tidak dapat membuka
+-- aplikasi"), diuji di sini pada level tabel produk sebagai representatif.
 select is(
   (select count(*) from public.products),
   0::bigint,

@@ -12,6 +12,8 @@ import {
 } from "@/lib/domain/transaction";
 
 describe("calculateTransactionFinancials", () => {
+  // Ketiga test berikut memverifikasi tiga cabang aturan pengakuan finansial
+  // di 03-Business-Rules.md bagian Formula: lunas, piutang, dan void.
   it("mengakui omzet, HPP, dan gross profit transaksi lunas", () => {
     expect(
       calculateTransactionFinancials({
@@ -62,6 +64,9 @@ describe("calculateTransactionFinancials", () => {
 });
 
 describe("createTransactionInputSchema", () => {
+  // Kasus di bawah menegaskan aturan "nama pelanggan wajib untuk piutang,
+  // opsional untuk lunas" dan boundary quantity integer positif dari
+  // 03-Business-Rules.md, tanpa perlu database untuk mengujinya.
   const baseInput = {
     idempotencyKey: "00000000-0000-4000-8000-000000000001",
     items: [{ productId: "00000000-0000-4000-8000-000000000010", quantity: 1 }],

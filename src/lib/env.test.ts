@@ -9,6 +9,8 @@ import { describe, expect, it } from "vitest";
 import { parsePublicEnvironment } from "@/lib/env";
 
 describe("parsePublicEnvironment", () => {
+  // `input` diberikan eksplisit (bukan mengandalkan `process.env` default)
+  // supaya test ini deterministik dan tidak bergantung pada .env lokal.
   it("menerima konfigurasi Supabase valid", () => {
     expect(
       parsePublicEnvironment({

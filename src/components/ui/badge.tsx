@@ -14,6 +14,9 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
+        // default memakai token --primary (satu-satunya brand accent yang disetujui);
+        // pilih secondary/outline/ghost untuk badge informasi biasa agar warna brand
+        // tidak terpakai berlebihan di luar penanda status/aksi utama.
         default: "bg-primary text-primary-foreground [a]:hover:bg-primary/80",
         secondary:
           "bg-secondary text-secondary-foreground [a]:hover:bg-secondary/80",

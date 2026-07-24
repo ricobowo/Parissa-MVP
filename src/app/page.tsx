@@ -18,6 +18,8 @@ import {
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 
+// Data ditulis statis, bukan hasil fetch, karena halaman ini hanya merangkum status
+// Gate C yang sudah diverifikasi manual (lihat AGENTS.md); bukan metrik operasional.
 const foundationAreas = [
   {
     title: "Application",
@@ -41,6 +43,11 @@ const foundationAreas = [
   },
 ] as const;
 
+/**
+ * Halaman root sementara: konfirmasi status Gate C/foundation, bukan tampilan POS.
+ * Akan digantikan oleh entry point Core POS (product grid, cart, submit) sesuai
+ * `05-POS-Flow.md` begitu Phase 3 tersedia.
+ */
 export default function Home() {
   return (
     <main className="mx-auto flex min-h-svh w-full max-w-6xl flex-col gap-10 px-5 py-8 sm:px-8 sm:py-12 lg:px-10">

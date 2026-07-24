@@ -44,6 +44,8 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  /* Seluruh skala radius diturunkan dari satu variabel --radius agar shape system
+     tetap konsisten bila token brand di :root diubah, tanpa menghitung ulang tiap step. */
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -60,6 +62,10 @@
   --card-foreground: #252324;
   --popover: #ffffff;
   --popover-foreground: #252324;
+  /* --primary (#BD4052) adalah shade aksen merah yang memenuhi kontras AA dengan teks
+     putih, dipakai untuk action/pilihan aktif. Aksen brand yang lebih terang
+     (--chart-2 / #E85C6D) sengaja tidak dipakai sebagai warna action karena hanya
+     memenuhi peran indikator nonteks; lihat 06-Design-Brief.md. */
   --primary: #bd4052;
   --primary-foreground: #ffffff;
   --secondary: #f3f2f1;
@@ -100,6 +106,9 @@
   html {
     @apply font-sans;
   }
+  /* Primitive Base UI/shadcn tidak menetapkan cursor pointer secara default;
+     aturan ini memulihkan afordansi klik pada button/role=button aktif tanpa
+     memengaruhi state disabled. */
   button:not(:disabled),
   [role="button"]:not(:disabled) {
     cursor: pointer;

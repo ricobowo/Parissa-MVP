@@ -1,6 +1,6 @@
 <!--
 @file CHANGELOG.md
-@version 0.4.2
+@version 0.4.3
 @description Riwayat perubahan repository Parissa POS MVP.
 -->
 
@@ -13,6 +13,26 @@ Semua perubahan penting repository dicatat di dokumen ini. Versi repository meng
 ### Planned
 
 - Implementation plan dan pengembangan Core POS Phase 3.
+
+## [0.4.3] — 2026-07-24
+
+### Added
+
+- `Document/Engineering-Code-Guide.md` sebagai panduan arsitektur handoff: batas layer, peta folder/entry point, alur auth/permission, alur transaksi UI→RPC/database, aturan HPP snapshot/pembayaran/piutang/void/audit, peta test dan command verifikasi, serta panduan menelusuri satu transaksi end-to-end.
+- Job `database` di `.github/workflows/ci.yml` (`needs: quality`, paralel dengan `e2e`): menjalankan `supabase:start` → `db:reset` → `db:lint` → `db:test` → `supabase:stop` otomatis pada tiap PR/push ke `main`, menutup gap Quality Gate RLS/pgTAP yang sebelumnya hanya diverifikasi manual.
+
+### Changed
+
+- Menambahkan komentar edukatif Bahasa Indonesia (TSDoc/JSDoc dan komentar "mengapa") pada `src/app/`, `src/components/ui/`, `src/lib/`, `src/types/`, migration/seed/pgTAP di `supabase/`, `tests/e2e/foundation.spec.ts`, dan `.github/workflows/ci.yml`, mengikuti `.agents/skills/parissa-code-handoff/SKILL.md`. Perubahan bersifat komentar/dokumentasi saja — tidak ada logic, schema, kontrak fungsi, atau tampilan yang berubah (dikonfirmasi via `git diff`: hanya insertion pada bagian ini).
+
+### Removed
+
+- `src/types/database.ts` — tipe database manual yang tidak diimpor oleh `src/lib/supabase/browser.ts` maupun `server.ts` mana pun (keduanya memakai `src/types/database.generated.ts`). Dihapus untuk menghindari sumber kebenaran ganda; `database.generated.ts` (hasil `supabase gen types --local`) menjadi satu-satunya sumber type database.
+
+### Validation
+
+- `format:check`, `lint`, `type-check`, `test:run` (10/10), `build`, dan `test:e2e` (4/4 lintas viewport) lulus setelah seluruh komentar ditambahkan dan setelah `src/types/database.ts` dihapus.
+- `db:reset`, `db:lint`, dan `db:test` (23/23 pgTAP) dijalankan ulang secara lokal meniru urutan job `database` yang baru — hasil tetap sama dengan Gate C.
 
 ## [0.4.2] — 2026-07-24
 

@@ -16,6 +16,9 @@ function Card({
     <div
       data-slot="card"
       data-size={size}
+      // Batas card memakai ring-foreground/10 (bukan border warna eksplisit) supaya
+      // outline tetap tipis dan konsisten mengikuti token foreground; --card-spacing
+      // dipakai agar padding internal ikut satu skala spacing (4 default, 3 saat sm).
       className={cn(
         "group/card bg-card text-card-foreground ring-foreground/10 flex flex-col gap-(--card-spacing) overflow-hidden rounded-xl py-(--card-spacing) text-sm ring-1 [--card-spacing:--spacing(4)] has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0 data-[size=sm]:[--card-spacing:--spacing(3)] data-[size=sm]:has-data-[slot=card-footer]:pb-0 *:[img:first-child]:rounded-t-xl *:[img:last-child]:rounded-b-xl",
         className,

@@ -1,6 +1,6 @@
 <!--
 @file README.md
-@version 0.4.2
+@version 0.4.3
 @description Engineering foundation Parissa POS berdasarkan PRD MVP v3.1.
 -->
 
@@ -141,6 +141,7 @@ Keputusan visual sementara: tipografi ringan–menengah (400/500/600), surface n
 - [Design Brief](Document/MVP/06-Design-Brief.md)
 - [Acceptance Criteria](Document/MVP/07-Acceptance-Criteria.md)
 - [Engineering Foundation](Document/MVP/08-Engineering-Foundation.md)
+- [Engineering Code Guide](Document/Engineering-Code-Guide.md)
 - [Timeline Development Interaktif](Document/Parissa-Development-Timeline.html)
 - [Instruksi Agent](AGENTS.md)
 - [Riwayat Perubahan](CHANGELOG.md)
@@ -164,6 +165,7 @@ Keputusan visual sementara: tipografi ringan–menengah (400/500/600), surface n
 ├── Document/
 │   ├── AI/
 │   │   └── SKILLS_CATALOG.md
+│   ├── Engineering-Code-Guide.md
 │   ├── MVP/
 │   ├── Parissa-Development-Timeline.html
 │   ├── PRD-Parissa-MVP.md
@@ -201,7 +203,7 @@ Susun implementation plan Phase 3, lalu bangun login, katalog produk, quick-sale
 
 ## Versi
 
-- Repository/software: `0.4.2`.
+- Repository/software: `0.4.3`.
 - Baseline PRD: MVP `v3.1`.
 
 Lihat `CHANGELOG.md` untuk perubahan repository.

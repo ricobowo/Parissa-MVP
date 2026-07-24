@@ -5,6 +5,8 @@
  * @version 0.1.0
  * @description Komponen separator shadcn/ui.
  */
+// "use client" diperlukan karena primitive Base UI di bawah ini bergantung pada
+// context/hook sisi client, meski komponen ini secara visual statis.
 import { Separator as SeparatorPrimitive } from "@base-ui/react/separator";
 
 import { cn } from "@/lib/utils";

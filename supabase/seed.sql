@@ -2,6 +2,10 @@
 -- @version 0.2.0
 -- @description Role tetap dan enam produk development Parissa POS.
 
+-- id role dan produk di seed ini sengaja tetap (bukan gen_random_uuid) agar
+-- stabil lintas db:reset dan bisa dirujuk langsung oleh pgTAP di
+-- supabase/tests/database/*.sql. `on conflict ... do update` membuat seed
+-- ini aman dijalankan berulang tanpa error duplikat maupun perlu truncate.
 insert into public.roles (id, code, name, permissions)
 values
   (

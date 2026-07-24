@@ -2,6 +2,13 @@
  * @file database.generated.ts
  * @version 0.1.0
  * @description Tipe database yang dihasilkan dari schema Supabase lokal tervalidasi.
+ *
+ * FILE AUTO-GENERATED — jangan diedit manual. Dihasilkan oleh
+ * `supabase gen types` (lihat `npm run` script terkait di 08-Engineering-
+ * Foundation.md) dari schema database lokal setelah migration diterapkan.
+ * Perubahan tipe harus dilakukan lewat migration baru di
+ * `supabase/migrations/`, lalu regenerate ulang file ini; edit manual di
+ * bawah ini akan hilang saat file di-generate ulang.
  */
 
 export type Json =

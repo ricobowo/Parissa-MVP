@@ -13,6 +13,9 @@ const alertVariants = cva(
   {
     variants: {
       variant: {
+        // default tetap netral (bg-card), bukan warna aksen brand; hanya varian
+        // destructive yang memakai warna semantik, sesuai aturan Design Brief bahwa
+        // hijau/amber/merah hanya untuk makna status, bukan dekorasi.
         default: "bg-card text-card-foreground",
         destructive:
           "bg-card text-destructive *:data-[slot=alert-description]:text-destructive/90 *:[svg]:text-current",

@@ -6,6 +6,12 @@ begin;
 
 create extension if not exists pgtap with schema extensions;
 
+-- 18 kasus ini memverifikasi jalur RPC (create_transaction,
+-- set_transaction_payment_status, void_transaction) sesuai Business Rules:
+-- total/HPP dihitung server, idempotensi anti double-submit, wajib nama
+-- pelanggan untuk piutang, paid_at/paid_by, Owner-only mark-as-unpaid dan
+-- void beserta audit log-nya, serta guard inactive-user pada level RPC
+-- (bukan hanya level select tabel seperti di rls.test.sql).
 select plan(18);
 
 insert into auth.users (
@@ -83,6 +89,9 @@ select set_config(
 select set_config('request.jwt.claim.role', 'authenticated', true);
 set local role authenticated;
 
+-- Guard ini memastikan seed HPP yang dipakai seluruh perhitungan di bawah
+-- memang angka resmi Airtable Gate C, bukan angka indikatif PRD lama;
+-- test lain di bawah akan diam-diam salah jika seed ini pernah drift.
 select is(
   (
     select array_agg(standard_cost order by id)
@@ -99,6 +108,10 @@ select is(
   'Seed menyimpan enam HPP placeholder development'
 );
 
+-- Menguji guard null eksplisit yang ditambahkan migration
+-- 20260723000200_harden_create_transaction.sql; tanpa guard itu, payload
+-- items null bisa lolos dari pengecekan `not in (...)`/`<>` yang bernilai
+-- NULL (bukan TRUE) saat operand-nya NULL.
 select throws_ok(
   $$select public.create_transaction(
     '41000000-0000-4000-8000-000000000001'::uuid,
@@ -110,6 +123,9 @@ select throws_ok(
   'Create menolak items null'
 );
 
+-- Menegakkan Business Rule 2: transaksi 'Belum' wajib nama pelanggan, dan
+-- ini divalidasi di database, bukan cuma di form UI, sehingga tidak bisa
+-- dilewati lewat panggilan RPC langsung.
 select throws_ok(
   $$select public.create_transaction(
     '41000000-0000-4000-8000-000000000002'::uuid,
@@ -128,6 +144,13 @@ select throws_ok(
   'Create piutang menolak nama pelanggan kosong'
 );
 
+-- Transaksi acuan berikut dipakai berulang oleh beberapa kasus di bawah
+-- (total, HPP, paid_at/paid_by, idempotensi, void) supaya satu skenario
+-- "transaksi lunas 2x Vanilla Pannacotta" bisa diverifikasi dari banyak sisi
+-- tanpa mengulang setup. Payload hanya berisi product_id dan quantity —
+-- tidak ada harga yang dikirim sama sekali — sehingga kasus berikutnya yang
+-- mencocokkan total_amount/total_cost membuktikan angka itu murni hasil
+-- perhitungan server dari public.products.
 select public.create_transaction(
   '41000000-0000-4000-8000-000000000003',
   'Sudah',
@@ -161,6 +184,8 @@ select is(
   'Create menghitung total HPP placeholder'
 );
 
+-- Business Rule 3: transaksi yang dibuat langsung 'Sudah' harus langsung
+-- mengisi paid_at/paid_by saat create, bukan menunggu mutation terpisah.
 select ok(
   (
     select paid_at is not null and paid_by = auth.uid()
@@ -170,6 +195,9 @@ select ok(
   'Transaksi lunas mencatat paid_at dan paid_by'
 );
 
+-- Snapshot HPP item tidak boleh berubah walau standard_cost produk berubah
+-- di masa depan; ini membuktikan nilai disalin ke transaction_items saat
+-- create, bukan dijoin ulang ke products setiap kali dibaca.
 select is(
   (
     select unit_cost_snapshot
@@ -184,6 +212,9 @@ select is(
   'Item menyimpan snapshot HPP placeholder'
 );
 
+-- Simulasi double-submit: memanggil create_transaction lagi dengan
+-- idempotency key yang sama (payload identik, actor sama) harus
+-- mengembalikan transaksi yang sudah ada, bukan membuat baris kedua.
 select is(
   (
     select id
@@ -218,6 +249,9 @@ select is(
   'Retry tidak membuat transaksi duplikat'
 );
 
+-- Transaksi acuan kedua: piutang aktif dengan nama pelanggan, dipakai untuk
+-- menguji pelunasan (Kasir boleh) dan pengembalian ke belum lunas
+-- (Owner-only) di kelompok kasus berikut ini.
 select public.create_transaction(
   '41000000-0000-4000-8000-000000000004',
   'Belum',
@@ -250,6 +284,8 @@ select ok(
   'Kasir dapat melunasi piutang'
 );
 
+-- Arah sebaliknya (Sudah -> Belum) mengoreksi agregat finansial yang sudah
+-- diakui, sehingga sengaja dibatasi hanya Owner walau Kasir boleh melunasi.
 select throws_ok(
   $$select public.set_transaction_payment_status(
     (
@@ -287,6 +323,10 @@ select set_config(
 select set_config('request.jwt.claim.role', 'authenticated', true);
 set local role authenticated;
 
+-- Beralih ke sesi Owner untuk sisa kasus: audit_logs hanya bisa dibaca
+-- Owner (policy audit_logs_select_owner), dan hanya Owner yang boleh
+-- mark-as-unpaid serta void, jadi kasus-kasus berikut memverifikasi kedua
+-- hal itu sekaligus lewat query yang sama.
 select is(
   (
     select count(*)
@@ -328,6 +368,9 @@ select public.set_transaction_payment_status(
   'Belum'
 );
 
+-- Memverifikasi Business Rule 3: mark-as-unpaid benar-benar membersihkan
+-- paid_at/paid_by (bukan hanya mengganti label status), sehingga transaksi
+-- ini kembali terhitung sebagai piutang aktif.
 select ok(
   (
     select
@@ -349,6 +392,9 @@ select public.void_transaction(
   'Kesalahan input'
 );
 
+-- Void wajib meninggalkan jejak lengkap (bukan hard delete): reason, waktu,
+-- dan actor semuanya harus terisi konsisten sesuai constraint
+-- transactions_void_fields_consistent di migration schema.
 select ok(
   (
     select
@@ -387,6 +433,9 @@ select set_config(
 select set_config('request.jwt.claim.role', 'authenticated', true);
 set local role authenticated;
 
+-- Guard inactive-user ditegakkan lagi di dalam RPC (current_user_is_active),
+-- melengkapi rls.test.sql yang menguji guard yang sama pada level select
+-- tabel biasa; di sini dibuktikan bahwa jalur mutation RPC juga tertutup.
 select throws_ok(
   $$select public.create_transaction(
     '41000000-0000-4000-8000-000000000005'::uuid,
