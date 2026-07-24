@@ -95,12 +95,6 @@ npm run db:test
 ## Hasil Gate C
 
 1. HPP resmi keenam produk telah dikonfirmasi menggunakan Airtable Parissa (nilai disimpan di sistem internal, tidak dipublikasikan di repository publik).
-
-
-
-
-
-
 2. OrbStack dan Docker engine tersedia untuk menjalankan Supabase lokal.
 3. Database reset, lint, pgTAP, dan generate database types telah lulus.
 4. Guard input `items = null` ditambahkan melalui migration korektif.

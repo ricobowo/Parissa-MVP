@@ -1,6 +1,6 @@
 <!--
 @file CHANGELOG.md
-@version 0.4.3
+@version 0.4.4
 @description Riwayat perubahan repository Parissa POS MVP.
 -->
 
@@ -13,6 +13,21 @@ Semua perubahan penting repository dicatat di dokumen ini. Versi repository meng
 ### Planned
 
 - Implementation plan dan pengembangan Core POS Phase 3.
+
+## [0.4.4] — 2026-07-24
+
+### Changed
+
+- Mengganti nilai HPP asli produk di `supabase/seed.sql` dan `supabase/tests/database/transactions.test.sql` dengan nilai placeholder development; data biaya bisnis resmi kini disimpan di sistem internal, tidak dipublikasikan di repository publik.
+- Meringkas Appendix A `Document/PRD-Parissa-MVP.md` (tabel HPP/margin/markup per produk dan statistik rekonsiliasi historis) menjadi catatan naratif tanpa angka literal; formula margin/markup tetap dijelaskan.
+- Meringkas item "Hasil Gate C" di `Document/MVP/08-Engineering-Foundation.md` agar tidak lagi mencantumkan nilai HPP literal, tetap menyatakan Gate C telah memverifikasi HPP enam produk.
+- Meringkas catatan rekonsiliasi historis di `README.md` tanpa angka pasti.
+- Menghapus sebutan AI tool spesifik di `Document/PRD-Parissa-MVP.md`, digantikan frasa generik tanpa mengubah aturan operasional yang dimaksud.
+- Menambahkan `.claude/settings.local.json` ke `.gitignore` repository (sebelumnya hanya diabaikan lewat gitignore global milik satu developer).
+
+### Validation
+
+- `format:check`, `lint`, `type-check`, `test:run` (10/10), `build`, `db:reset`, `db:lint`, dan `db:test` (23/23 pgTAP) lulus setelah seluruh redaksi, diverifikasi dua kali secara independen.
 
 ## [0.4.3] — 2026-07-24
 

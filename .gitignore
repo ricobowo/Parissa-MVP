@@ -27,3 +27,6 @@ yarn-debug.log*
 yarn-error.log*
 .DS_Store
 *.pem
+
+# Konfigurasi lokal Claude Code (permission, dsb.) — spesifik per mesin.
+.claude/settings.local.json

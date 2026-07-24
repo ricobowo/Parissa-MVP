@@ -398,27 +398,9 @@ README harus sinkron dengan PRD, VERSION, CHANGELOG, progress, dependency, dan s
 
 Margin dinormalisasi menggunakan gross margin terhadap harga jual: `gross_margin_pct = ((price - cost) / price) × 100`, markup: `markup_pct = ((price - cost) / cost) × 100` (lihat `Document/MVP/03-Business-Rules.md` §6). Nilai HPP resmi dan margin/markup aktual per produk bersumber dari Airtable Parissa dan dikonfirmasi Owner pada 23 Juli 2026, disimpan di sistem internal, dan tidak dipublikasikan di repository publik ini untuk menjaga kerahasiaan struktur biaya bisnis. Angka dari PRD v2.4 dinyatakan keliru dan tidak boleh digunakan sebagai source of truth. Database menyimpan presisi dua desimal, sedangkan UI menampilkan Rupiah tanpa desimal.
 
-
-
-
-
-
-
-
-
-
-
-
 ### Statistik historis
 
-
-
-
-
-
-
-
-
+Rekonsiliasi data historis (jumlah transaksi, total unit, revenue, cost, profit, piutang, dan produk terlaris periode sebelumnya) dikelola secara internal dan tidak dipublikasikan di repository publik ini. Lihat catatan rekonsiliasi pasca-MVP di `Document/Project-Restart-Plan.md` untuk konteks proses migrasinya.
 
 ### Sumber data yang dipertahankan
 

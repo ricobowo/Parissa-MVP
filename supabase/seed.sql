@@ -26,6 +26,8 @@ set
   permissions = excluded.permissions;
 
 -- HPP di bawah ini adalah nilai PLACEHOLDER untuk kebutuhan development lokal,
+-- BUKAN data biaya bisnis Parissa yang sebenarnya. Nilai HPP resmi disimpan
+-- di sistem internal Owner dan tidak dipublikasikan di repository ini.
 -- Bundling 3pcs memakai tiga kali HPP placeholder per pcs: 3 × 9.500 = 28.500.
 insert into public.products (
   id,

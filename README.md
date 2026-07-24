@@ -1,6 +1,6 @@
 <!--
 @file README.md
-@version 0.4.3
+@version 0.4.4
 @description Engineering foundation Parissa POS berdasarkan PRD MVP v3.1.
 -->
 
@@ -203,7 +203,7 @@ Susun implementation plan Phase 3, lalu bangun login, katalog produk, quick-sale
 
 ## Versi
 
-- Repository/software: `0.4.3`.
+- Repository/software: `0.4.4`.
 - Baseline PRD: MVP `v3.1`.
 
 Lihat `CHANGELOG.md` untuk perubahan repository.

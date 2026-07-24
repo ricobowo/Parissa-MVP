@@ -89,9 +89,10 @@ select set_config(
 select set_config('request.jwt.claim.role', 'authenticated', true);
 set local role authenticated;
 
--- Guard ini memastikan seed HPP yang dipakai seluruh perhitungan di bawah
--- memang angka resmi Airtable Gate C, bukan angka indikatif PRD lama;
--- test lain di bawah akan diam-diam salah jika seed ini pernah drift.
+-- Guard ini memastikan seed HPP placeholder yang dipakai seluruh perhitungan
+-- di bawah memang nilai dev yang disepakati di seed.sql, bukan angka
+-- indikatif PRD lama; test lain di bawah akan diam-diam salah jika seed ini
+-- pernah drift.
 select is(
   (
     select array_agg(standard_cost order by id)
@@ -208,7 +209,7 @@ select is(
       where idempotency_key = '41000000-0000-4000-8000-000000000003'
     )
   ),
-  8000::numeric,
+  8000.00::numeric,
   'Item menyimpan snapshot HPP placeholder'
 );
 
