@@ -1,6 +1,6 @@
 <!--
 @file AGENTS.md
-@version 0.4.0
+@version 0.4.2
 @description Instruksi kerja wajib untuk agent pada repository Parissa POS MVP.
 -->
 
@@ -33,6 +33,13 @@ Gunakan urutan berikut ketika dokumen berbeda:
 Untuk nilai HPP enam produk, gunakan seed yang telah diselaraskan dari Airtable Parissa pada 23 Juli 2026. Jangan mengembalikan angka indikatif PRD v2.4.
 
 Jika konflik memengaruhi scope, data, formula, permission, atau perilaku bisnis, berhenti dan minta keputusan Owner. Jangan menyelesaikan konflik dengan asumsi tersembunyi.
+
+## Skill Repository
+
+- Gunakan `.agents/skills/parissa-code-handoff/SKILL.md` ketika diminta menjelaskan kode, menambahkan komentar edukatif, membuat panduan engineering, atau menyiapkan handoff AI/developer.
+- Skill proyek di `.agents/skills/` dilacak Git agar tersedia lintas mesin. Skill global hanya digunakan bila tersedia dan tidak boleh menjadi dependency wajib repository.
+- Gunakan `Document/AI/SKILLS_CATALOG.md` untuk memilih skill sesuai jenis pekerjaan.
+- Katalog proyek dilacak Git. Inventaris lengkap skill global bersifat lokal, tidak menjadi source of truth, dan tidak disimpan di repository.
 
 ## Approval Gates
 

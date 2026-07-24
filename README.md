@@ -1,6 +1,6 @@
 <!--
 @file README.md
-@version 0.4.0
+@version 0.4.2
 @description Engineering foundation Parissa POS berdasarkan PRD MVP v3.1.
 -->
 
@@ -145,13 +145,25 @@ Keputusan visual sementara: tipografi ringan–menengah (400/500/600), surface n
 - [Instruksi Agent](AGENTS.md)
 - [Riwayat Perubahan](CHANGELOG.md)
 
+## Skill AI Proyek
+
+- [Parissa Code Handoff](.agents/skills/parissa-code-handoff/SKILL.md) digunakan untuk komentar kode edukatif, dokumentasi engineering, dan onboarding AI/developer.
+- [Katalog Skill AI](Document/AI/SKILLS_CATALOG.md) membantu memilih skill berdasarkan jenis pekerjaan.
+- Skill repository disimpan di `.agents/skills/` dan dilacak Git.
+- Katalog yang dilacak hanya berisi skill relevan untuk Parissa; snapshot lengkap instalasi global tidak disimpan di repository.
+
 ## Struktur Repository Saat Ini
 
 ```text
 .
 ├── AGENTS.md
 ├── CHANGELOG.md
+├── .agents/
+│   └── skills/
+│       └── parissa-code-handoff/
 ├── Document/
+│   ├── AI/
+│   │   └── SKILLS_CATALOG.md
 │   ├── MVP/
 │   ├── Parissa-Development-Timeline.html
 │   ├── PRD-Parissa-MVP.md
@@ -189,7 +201,7 @@ Susun implementation plan Phase 3, lalu bangun login, katalog produk, quick-sale
 
 ## Versi
 
-- Repository/software: `0.4.0`.
+- Repository/software: `0.4.2`.
 - Baseline PRD: MVP `v3.1`.
 
 Lihat `CHANGELOG.md` untuk perubahan repository.

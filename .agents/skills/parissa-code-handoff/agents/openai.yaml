@@ -1,0 +1,4 @@
+interface:
+  display_name: "Parissa Code Handoff"
+  short_description: "Komentar edukatif dan panduan handoff kode"
+  default_prompt: "Gunakan $parissa-code-handoff untuk menjelaskan kode Parissa dengan komentar selektif dan memperbarui panduan engineering tanpa mengubah perilaku aplikasi."

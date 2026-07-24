@@ -1,6 +1,6 @@
 <!--
 @file CHANGELOG.md
-@version 0.4.0
+@version 0.4.2
 @description Riwayat perubahan repository Parissa POS MVP.
 -->
 
@@ -13,6 +13,27 @@ Semua perubahan penting repository dicatat di dokumen ini. Versi repository meng
 ### Planned
 
 - Implementation plan dan pengembangan Core POS Phase 3.
+
+## [0.4.2] — 2026-07-24
+
+### Changed
+
+- Memindahkan katalog skill dari root ke `Document/AI/SKILLS_CATALOG.md`.
+- Mengubah katalog dari snapshot 222 skill global menjadi daftar kurasi dan routing skill khusus kebutuhan Parissa.
+- Menetapkan katalog kurasi proyek sebagai file yang dilacak Git, sementara inventaris lengkap skill global tetap berada di luar repository.
+
+## [0.4.1] — 2026-07-24
+
+### Added
+
+- Skill repository `parissa-code-handoff` untuk komentar kode edukatif, Engineering Code Guide, dan onboarding AI/developer.
+- Metadata skill agar dapat ditemukan dan dipanggil oleh agent yang mendukung format Agent Skills.
+
+### Changed
+
+- Menambahkan routing skill pendamping untuk frontend, shadcn, PostgreSQL/migration, security, ADR, dan verification bila tersedia.
+- Menjelaskan kebijakan penyimpanan skill proyek pada AGENTS dan README.
+- Awalnya mengabaikan snapshot `SKILLS_CATALOG.md`; kebijakan ini kemudian diganti pada `0.4.2` dengan katalog kurasi proyek yang dilacak Git.
 
 ## [0.4.0] — 2026-07-23
 
